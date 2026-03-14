@@ -47,3 +47,7 @@ desktop.ini
 # Local environment
 appsettings.local.json
 launchSettings.json
+
+*.assets.cache
+*.nuget.dgspec.json
+project.nuget.cache
