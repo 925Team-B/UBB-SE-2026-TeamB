@@ -94,9 +94,10 @@ namespace BankingAppTeamB.Services
             return Math.Max(0.50m, percentage);
         }
 
-        public decimal CalculateTargetAmount(decimal sourceAmount,decimal rate,decimal comission)
-        {
-            return sourceAmount * rate - comission;
+        public decimal CalculateTargetAmount(decimal sourceAmount,decimal rate)
+        {   
+            decimal commission= CalculateCommission(sourceAmount);
+            return sourceAmount * rate - commission;
         }
 
 
