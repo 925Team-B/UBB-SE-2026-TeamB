@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36" version="29.6.1">
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36" version="29.6.4">
   <diagram id="teamb-class-v3" name="Team B – Class Diagram">
-    <mxGraphModel dx="1723" dy="883" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="3500" pageHeight="2100" math="0" shadow="0">
+    <mxGraphModel dx="1088" dy="558" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="3500" pageHeight="2100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -1223,46 +1223,13 @@
           <mxGeometry height="18" width="260" y="100" as="geometry" />
         </mxCell>
         <mxCell id="417" parent="1" style="swimlane;html=1;fontStyle=1;align=center;startSize=28;fillColor=#444444;strokeColor=#222222;fontColor=#FFFFFF;fontSize=11;rounded=1;arcSize=3;" value="&lt;&lt;EF Core DbContext&gt;&gt;&lt;br&gt;&lt;b&gt;AppDatabase&lt;/b&gt;" vertex="1">
-          <mxGeometry height="258" width="340" x="3060" y="570" as="geometry" />
-        </mxCell>
-        <mxCell id="418" parent="417" style="text;strokeColor=#888888;fillColor=#E8E8F0;align=left;verticalAlign=middle;spacingLeft=6;fontSize=9;fontStyle=1;html=0;" value="DbSets" vertex="1">
-          <mxGeometry height="16" width="340" y="28" as="geometry" />
-        </mxCell>
-        <mxCell id="419" parent="417" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;html=0;" value="+  Transfers: DbSet&lt;Transfer&gt;" vertex="1">
-          <mxGeometry height="18" width="340" y="44" as="geometry" />
-        </mxCell>
-        <mxCell id="420" parent="417" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;html=0;" value="+  Beneficiaries: DbSet&lt;Beneficiary&gt;" vertex="1">
-          <mxGeometry height="18" width="340" y="62" as="geometry" />
-        </mxCell>
-        <mxCell id="421" parent="417" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;html=0;" value="+  BillPayments: DbSet&lt;BillPayment&gt;" vertex="1">
-          <mxGeometry height="18" width="340" y="80" as="geometry" />
-        </mxCell>
-        <mxCell id="422" parent="417" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;html=0;" value="+  Billers: DbSet&lt;Biller&gt;" vertex="1">
-          <mxGeometry height="18" width="340" y="98" as="geometry" />
-        </mxCell>
-        <mxCell id="423" parent="417" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;html=0;" value="+  SavedBillers: DbSet&lt;SavedBiller&gt;" vertex="1">
-          <mxGeometry height="18" width="340" y="116" as="geometry" />
-        </mxCell>
-        <mxCell id="424" parent="417" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;html=0;" value="+  RecurringPayments: DbSet&lt;RecurringPayment&gt;" vertex="1">
-          <mxGeometry height="18" width="340" y="134" as="geometry" />
-        </mxCell>
-        <mxCell id="425" parent="417" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;html=0;" value="+  ExchangeTransactions: DbSet&lt;ExchangeTransaction&gt;" vertex="1">
-          <mxGeometry height="18" width="340" y="152" as="geometry" />
-        </mxCell>
-        <mxCell id="426" parent="417" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;html=0;" value="+  RateAlerts: DbSet&lt;RateAlert&gt;" vertex="1">
-          <mxGeometry height="18" width="340" y="170" as="geometry" />
-        </mxCell>
-        <mxCell id="427" parent="417" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;html=0;" value="+  Transactions: DbSet&lt;Transaction&gt;" vertex="1">
-          <mxGeometry height="18" width="340" y="188" as="geometry" />
+          <mxGeometry height="70" width="340" x="3060" y="570" as="geometry" />
         </mxCell>
         <mxCell id="428" parent="417" style="text;strokeColor=#888888;fillColor=#E8E8F0;align=left;verticalAlign=middle;spacingLeft=6;fontSize=9;fontStyle=1;html=0;" value="Methods" vertex="1">
-          <mxGeometry height="16" width="340" y="206" as="geometry" />
+          <mxGeometry height="16" width="340" y="30" as="geometry" />
         </mxCell>
-        <mxCell id="429" parent="417" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;html=0;" value="+  saveChanges(): int" vertex="1">
-          <mxGeometry height="18" width="340" y="222" as="geometry" />
-        </mxCell>
-        <mxCell id="430" parent="417" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;html=0;" value="+  saveChangesAsync(): Task&lt;int&gt;" vertex="1">
-          <mxGeometry height="18" width="340" y="240" as="geometry" />
+        <mxCell id="429" parent="417" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;html=0;" value="+  GetConnection(): SqlConnection" vertex="1">
+          <mxGeometry height="18" width="340" y="46" as="geometry" />
         </mxCell>
         <mxCell id="431" parent="1" style="swimlane;html=1;fontStyle=1;align=center;startSize=28;fillColor=#444444;strokeColor=#222222;fontColor=#FFFFFF;fontSize=11;rounded=1;arcSize=3;" value="&lt;&lt;external — Team A&gt;&gt;&lt;br&gt;&lt;b&gt;Account&lt;/b&gt;" vertex="1">
           <mxGeometry height="152" width="260" x="3060" y="940" as="geometry" />
