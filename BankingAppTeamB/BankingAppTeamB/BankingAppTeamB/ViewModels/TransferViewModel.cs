@@ -221,7 +221,8 @@ namespace BankingAppTeamB.ViewModels
 
         private void ExecuteCancel()
         {
-            NavigationService.NavigateTo<MainPage>();
+            // TODO: replace with correct view type when Views are implemented
+            // NavigationService.NavigateTo<HomeView>();
         }
 
         private void ExecuteSendAgain()
