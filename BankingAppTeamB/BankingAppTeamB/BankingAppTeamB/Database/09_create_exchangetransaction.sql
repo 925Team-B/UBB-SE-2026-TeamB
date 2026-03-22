@@ -6,9 +6,9 @@ BEGIN
     CREATE TABLE ExchangeTransaction (
         Id INT IDENTITY(1,1) PRIMARY KEY,
         
-        UserId INT NOT NULL;
-        SourceAccountId INT NOT NULL;
-        TargetAccountId INT NOT NULL;
+        UserId INT NOT NULL,
+        SourceAccountId INT NOT NULL,
+        TargetAccountId INT NOT NULL,
                         
         TransactionId INT NULL,
                       
