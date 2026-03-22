@@ -1,6 +1,9 @@
-﻿namespace BankingAppTeamB.Mocks
+﻿using System;
+using BankingAppTeamB.Models;
+
+namespace BankingAppTeamB.Mocks
 {
-    public static class AccountService
+    public class AccountService
     {
         public static void DebitAccount(int accountId, decimal amount) { }
         public static void CreditAccount(int accountId, decimal amount) { }
