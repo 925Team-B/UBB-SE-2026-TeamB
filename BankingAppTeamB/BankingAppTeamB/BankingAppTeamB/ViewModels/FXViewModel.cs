@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using System.Threading;
 using System.Threading.Tasks;
 using BankingAppTeamB.Commands;
 using Microsoft.UI.Xaml;
 using BankingAppTeamB.Models;
 using BankingAppTeamB.Services;
 using BankingAppTeamB.Mocks;
+using BankingAppTeamB.Models.DTOs;
 
 namespace BankingAppTeamB.ViewModels;
 
@@ -87,6 +89,27 @@ public class FXViewModel : ViewModelBase
                 Recalculate();
         }
     }
+    
+    private string _amountText = "";
+
+    public string AmountText
+    {
+        get => _amountText;
+        set
+        {
+            if (SetProperty(ref _amountText, value))
+            {
+                if (decimal.TryParse(value, out var parsed))
+                {
+                    Amount = parsed;   // this will trigger Recalculate()
+                }
+                else
+                {
+                    Amount = 0;
+                }
+            }
+        }
+    }
 
     private decimal _liveRate;
 
@@ -147,6 +170,10 @@ public class FXViewModel : ViewModelBase
 
     public AsyncRelayCommand LoadRatesCommand { get; }
     public RelayCommand LockRateCommand { get; }
+    
+    public AsyncRelayCommand ExecuteExchangeCommand { get; }
+    public RelayCommand CancelCommand { get; }
+    public RelayCommand NewExchangeCommand { get; }
 
 
     private DispatcherTimer? _timer;
@@ -160,8 +187,100 @@ public class FXViewModel : ViewModelBase
         LoadRatesCommand = new AsyncRelayCommand(LoadRatesAsync);
         LockRateCommand = new RelayCommand(LockRate);
 
+        ExecuteExchangeCommand = new AsyncRelayCommand(ExecuteExchanges);
+        CancelCommand = new RelayCommand(Cancel);
+        NewExchangeCommand = new RelayCommand(Reset);
+
         // Load mock accounts immediately
         _ = LoadAccountsAsync();
+    }
+
+    private void Cancel(object? _)
+    {
+        _timer?.Stop();
+        Reset(null);
+    }
+
+    private void Reset(object? _)
+    {
+        _timer?.Stop();
+        _timer = null;
+        
+        _exchangeService.ClearLocks(UserSession.CurrentUserId);
+
+        SourceAccount = null;
+        TargetAccount = null;
+        
+        _lockedRate = null;
+        
+        SourceCurrency = "";
+        TargetCurrency = "";
+
+        Amount = 0;
+        LiveRate = 0;
+        Commission = 0;
+        TargetAmount = 0;
+
+        SecondsRemaining = 0;
+        IsRateExpired = false;
+        
+        ErrorMessage = "";
+
+        CurrentStep = 1;
+        AmountText = "";
+    }
+    
+    private Task ExecuteExchanges(object? _)
+    {
+        try
+        {
+            ErrorMessage = "";
+            
+            if (IsRateExpired)
+            {
+                ErrorMessage = "The exchange rate has expired. Please lock a new rate.";
+                return Task.CompletedTask;
+            }
+            
+            if (SourceAccount == null || TargetAccount == null)
+            {
+                ErrorMessage = "Please select both source and target accounts.";
+                return Task.CompletedTask;
+            }
+            
+            if (_lockedRate == null)
+            {
+                ErrorMessage = "Please lock a rate first.";
+                return Task.CompletedTask;
+            }
+            
+            var dto = new ExchangeDto
+            {
+                UserId = UserSession.CurrentUserId,
+                SourceAccountId = SourceAccount!.Id,
+                TargetAccountId = TargetAccount!.Id,
+                SourceCurrency = SourceCurrency,
+                TargetCurrency = TargetCurrency,
+                SourceAmount = Amount,
+                LockedRate = _lockedRate!.Rate
+            };
+
+            var result =  _exchangeService.ExecuteExchange(dto);
+
+    
+            _timer?.Stop();
+
+       
+            TransactionRef = $"TX-{result.Id}";
+            
+            CurrentStep = 5;
+        }
+        catch (Exception ex)
+        {
+            ErrorMessage = ex.Message;
+        }
+        
+        return Task.CompletedTask;
     }
 
     public Task LoadAccountsAsync()

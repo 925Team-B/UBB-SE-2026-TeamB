@@ -6,23 +6,21 @@
 
     <StackPanel Spacing="10" Padding="20">
 
-        <!-- Source Account -->
         <ComboBox Header="Source Account"
                   ItemsSource="{Binding Accounts}"
                   SelectedItem="{Binding SourceAccount, Mode=TwoWay}"
                   DisplayMemberPath="AccountName"/>
 
-        <!-- Target Account -->
+    
         <ComboBox Header="Target Account"
                   ItemsSource="{Binding Accounts}"
                   SelectedItem="{Binding TargetAccount, Mode=TwoWay}"
                   DisplayMemberPath="AccountName"/>
 
-        <!-- Amount -->
+  
         <TextBox Header="Amount"
-                 Text="{Binding Amount, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-
-        <!-- Preview -->
+                 Text="{Binding AmountText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+    
         <TextBlock Text="Live Rate:" />
         <TextBlock Text="{Binding LiveRate}" />
 
@@ -32,16 +30,39 @@
         <TextBlock Text="Target Amount:" />
         <TextBlock Text="{Binding TargetAmount}" />
 
-        <!-- Buttons -->
-        <Button Content="Load Rates"
-                Command="{Binding LoadRatesCommand}" />
+        <StackPanel Orientation="Horizontal" Spacing="10">
 
-        <Button Content="Lock Rate"
-                Command="{Binding LockRateCommand}" />
+            <Button Content="Load Rates"
+                    Command="{Binding LoadRatesCommand}" />
 
-        <!-- Timer -->
+            <Button Content="Lock Rate"
+                    Command="{Binding LockRateCommand}" />
+
+     
+            <Button Content="Execute Exchange"
+                    Command="{Binding ExecuteExchangeCommand}" />
+        </StackPanel>
+
         <TextBlock Text="Seconds Remaining:" />
         <TextBlock Text="{Binding SecondsRemaining}" />
+
+    
+        <TextBlock Text="Transaction Reference:" />
+        <TextBlock Text="{Binding TransactionRef}" />
+
+      
+        <TextBlock Text="{Binding ErrorMessage}"
+                   Foreground="Red" />
+
+
+        <StackPanel Orientation="Horizontal" Spacing="10">
+
+            <Button Content="Cancel"
+                    Command="{Binding CancelCommand}" />
+
+            <Button Content="New Exchange"
+                    Command="{Binding NewExchangeCommand}" />
+        </StackPanel>
 
     </StackPanel>
 </Page>
