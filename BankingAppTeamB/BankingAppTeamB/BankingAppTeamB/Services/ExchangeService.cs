@@ -135,7 +135,7 @@ namespace BankingAppTeamB.Services
                 };
 
             Transaction transactionLog =_transactionPipelineService.RunPipeline(context);
-            _transactionPipelineService.GetAccountService().CreditAccount(dto.TargetAccountId, targetAmount);
+            AccountService.CreditAccount(dto.TargetAccountId, targetAmount);
 
 
             ExchangeTransaction exchangeTransaction = new ExchangeTransaction
