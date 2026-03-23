@@ -1,9 +1,10 @@
 using BankingAppTeamB.Models;
+using BankingAppTeamB.Models.DTOs;
 using BankingAppTeamB.Services;
+using BankingAppTeamB.Commands;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using BankingAppTeamB.Mocks;
-using BankingAppTeamB.Commands;
 
 namespace BankingAppTeamB.ViewModels
 {
@@ -123,6 +124,9 @@ namespace BankingAppTeamB.ViewModels
         }
 
         public RelayCommand NextStepCommand { get; }
+        public AsyncRelayCommand TransferCommand { get; }
+        public RelayCommand CancelCommand { get; }
+        public RelayCommand SendAgainCommand { get; }
 
         public TransferViewModel(TransferService transferService)
         {
@@ -130,6 +134,13 @@ namespace BankingAppTeamB.ViewModels
             Accounts = new ObservableCollection<Account>();
             CurrentStep = 1;
 
+            NextStepCommand  = new RelayCommand(_ => ExecuteNextStep());
+            TransferCommand  = new AsyncRelayCommand(_ => ExecuteTransferAsync());
+            CancelCommand    = new RelayCommand(_ => ExecuteCancel());
+            SendAgainCommand = new RelayCommand(_ => ExecuteSendAgain());
+        }
+
+        public void LoadAccounts()
             NextStepCommand = new RelayCommand(_ => ExecuteNextStep());
         }
 
@@ -178,6 +189,62 @@ namespace BankingAppTeamB.ViewModels
             }
 
             CurrentStep++;
+        }
+
+        private async Task ExecuteTransferAsync()
+        {
+            CurrentStep = 5;
+
+            var dto = new TransferDto
+            {
+                UserId          = UserSession.CurrentUserId,
+                SourceAccountId = SelectedAccount.Id,
+                RecipientName   = RecipientName,
+                RecipientIBAN   = RecipientIBAN,
+                Amount          = Amount,
+                Currency        = Currency,
+                TwoFAToken      = TwoFAToken
+            };
+
+            try
+            {
+                var result = transferService.ExecuteTransfer(dto);
+                TransactionRef = result.TransactionId.HasValue
+                    ? $"TXN-{result.CreatedAt:yyyyMMdd}-{result.TransactionId:D4}"
+                    : result.Id.ToString();
+
+                CurrentStep = 6;
+            }
+            catch (System.Exception ex)
+            {
+                ErrorMessage = ex.Message;
+
+                CurrentStep = 4;
+            }
+        }
+
+        private void ExecuteCancel()
+        {
+            // TODO: replace with correct view type when Views are implemented
+            // NavigationService.NavigateTo<HomeView>();
+        }
+
+        private void ExecuteSendAgain()
+        {
+            SelectedAccount  = null;
+            RecipientName    = string.Empty;
+            RecipientIBAN    = string.Empty;
+            IsIBANValid      = false;
+            BankName         = string.Empty;
+            Amount           = 0;
+            Currency         = string.Empty;
+            FxPreviewText    = string.Empty;
+            TwoFAToken       = string.Empty;
+            Requires2FA      = false;
+            TransactionRef   = string.Empty;
+            ErrorMessage     = string.Empty;
+
+            CurrentStep = 1;
         }
 
         private void UpdateIBANValidation(string iban)
