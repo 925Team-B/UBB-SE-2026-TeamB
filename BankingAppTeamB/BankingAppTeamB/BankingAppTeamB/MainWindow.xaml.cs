@@ -11,7 +11,7 @@ namespace BankingAppTeamB
         {
             this.InitializeComponent();
             NavigationService.Frame = MainFrame;
-            NavView.SelectedItem = NavView.MenuItems[0];
+             NavView.SelectedItem = NavView.MenuItems[0];
         }
 
         private void NavView_SelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
