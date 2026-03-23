@@ -30,7 +30,7 @@ namespace BankingAppTeamB.Views
         public RateAlertsPage()
         {
             InitializeComponent();
-            this.DataContext = new RateAlertViewModel(ServiceLocator.ExchangeService, 1);
+            this.DataContext = new RateAlertViewModel(ServiceLocator.ExchangeService, 0);
         }
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)

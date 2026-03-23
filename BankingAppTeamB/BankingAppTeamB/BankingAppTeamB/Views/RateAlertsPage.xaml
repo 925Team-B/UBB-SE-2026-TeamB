@@ -38,7 +38,7 @@
                                 <ColumnDefinition Width="Auto"/>
                             </Grid.ColumnDefinitions>
                             <TextBlock Text="{Binding Key}" FontWeight="SemiBold" />
-                            <TextBlock Grid.Column="1" Text="{Binding Value}" />
+                            <TextBlock Grid.Column="1" Text="{Binding Value, Converter={StaticResource DecimalFormat}}" />
                         </Grid>
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
