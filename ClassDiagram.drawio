@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36" version="29.6.4">
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36" version="29.6.6">
   <diagram id="teamb-class-v3" name="Team B – Class Diagram">
-    <mxGraphModel dx="1088" dy="558" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="3500" pageHeight="2100" math="0" shadow="0">
+    <mxGraphModel dx="881" dy="1355" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="3500" pageHeight="2100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -977,7 +977,7 @@
           <mxGeometry height="18" width="340" y="384" as="geometry" />
         </mxCell>
         <mxCell id="335" parent="1" style="swimlane;fontStyle=1;align=center;startSize=28;fillColor=#1B3A5C;strokeColor=#0D2137;fontColor=#FFFFFF;fontSize=11;rounded=1;arcSize=3;" value="RateAlert" vertex="1">
-          <mxGeometry height="258" width="260" x="2760" y="40" as="geometry" />
+          <mxGeometry height="258" width="270" x="2760" y="40" as="geometry" />
         </mxCell>
         <mxCell id="336" parent="335" style="text;strokeColor=#888888;fillColor=#E8E8F0;align=left;verticalAlign=middle;spacingLeft=6;fontSize=9;fontStyle=1;html=0;" value="Properties" vertex="1">
           <mxGeometry height="16" width="260" y="28" as="geometry" />
@@ -1004,19 +1004,19 @@
           <mxGeometry height="18" width="260" y="152" as="geometry" />
         </mxCell>
         <mxCell id="344" parent="335" style="text;strokeColor=#888888;fillColor=#E8E8F0;align=left;verticalAlign=middle;spacingLeft=6;fontSize=9;fontStyle=1;html=0;" value="Methods" vertex="1">
-          <mxGeometry height="16" width="260" y="170" as="geometry" />
+          <mxGeometry height="16" width="260" y="188" as="geometry" />
         </mxCell>
         <mxCell id="345" parent="335" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;html=0;" value="+  getId(): int" vertex="1">
-          <mxGeometry height="18" width="260" y="186" as="geometry" />
-        </mxCell>
-        <mxCell id="346" parent="335" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;html=0;" value="+  isTriggered(): bool" vertex="1">
           <mxGeometry height="18" width="260" y="204" as="geometry" />
         </mxCell>
-        <mxCell id="347" parent="335" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;html=0;" value="+  setTriggered(v: bool): void" vertex="1">
+        <mxCell id="346" parent="335" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;html=0;" value="+  isTriggered(): bool" vertex="1">
           <mxGeometry height="18" width="260" y="222" as="geometry" />
         </mxCell>
         <mxCell id="348" parent="335" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;html=0;" value="+  getTargetRate(): decimal" vertex="1">
           <mxGeometry height="18" width="260" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="TshT352-f3w3Xq3bGJP3-496" parent="335" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;html=0;" value="-IsBuyAlert: bool" vertex="1">
+          <mxGeometry height="18" width="260" y="170" as="geometry" />
         </mxCell>
         <mxCell id="349" parent="1" style="swimlane;html=1;fontStyle=1;align=center;startSize=28;fillColor=#1A5C2E;strokeColor=#0D3018;fontColor=#FFFFFF;fontSize=11;rounded=1;arcSize=3;" value="&lt;&lt;interface&gt;&gt;&lt;br&gt;&lt;b&gt;IExchangeRepository&lt;/b&gt;" vertex="1">
           <mxGeometry height="152" width="310" x="2380" y="570" as="geometry" />
@@ -1072,53 +1072,64 @@
         <mxCell id="366" parent="357" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;html=0;" value="+  markAlertTriggered(id: int): void" vertex="1">
           <mxGeometry height="18" width="310" y="168" as="geometry" />
         </mxCell>
+        <mxCell id="TshT352-f3w3Xq3bGJP3-498" edge="1" parent="1" source="367" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=1;exitDx=0;exitDy=0;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="2869.7692307692305" y="1390" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
         <mxCell id="367" parent="1" style="swimlane;fontStyle=1;align=center;startSize=28;fillColor=#6B3A00;strokeColor=#3D2000;fontColor=#FFFFFF;fontSize=11;rounded=1;arcSize=3;" value="ExchangeService" vertex="1">
-          <mxGeometry height="294" width="490" x="2380" y="1090" as="geometry" />
+          <mxGeometry height="357" width="590" x="2390" y="1022.5" as="geometry" />
         </mxCell>
         <mxCell id="368" parent="367" style="text;strokeColor=#888888;fillColor=#E8E8F0;align=left;verticalAlign=middle;spacingLeft=6;fontSize=9;fontStyle=1;html=0;" value="Fields" vertex="1">
-          <mxGeometry height="16" width="490" y="28" as="geometry" />
+          <mxGeometry height="16" width="490" y="20" as="geometry" />
         </mxCell>
         <mxCell id="369" parent="367" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;html=0;" value="-  repo: IExchangeRepository" vertex="1">
-          <mxGeometry height="18" width="340" y="44" as="geometry" />
+          <mxGeometry height="18" width="340" y="36" as="geometry" />
         </mxCell>
         <mxCell id="370" parent="367" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;html=0;" value="-  pipeline: TransactionPipelineService" vertex="1">
-          <mxGeometry height="18" width="340" y="62" as="geometry" />
+          <mxGeometry height="18" width="340" y="54" as="geometry" />
         </mxCell>
         <mxCell id="371" parent="367" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;html=0;" value="-  lockedRates: Dictionary&lt;int, LockedRate&gt;" vertex="1">
-          <mxGeometry height="18" width="340" y="80" as="geometry" />
+          <mxGeometry height="18" width="340" y="72" as="geometry" />
         </mxCell>
         <mxCell id="372" parent="367" style="text;strokeColor=#888888;fillColor=#E8E8F0;align=left;verticalAlign=middle;spacingLeft=6;fontSize=9;fontStyle=1;html=0;" value="Methods" vertex="1">
-          <mxGeometry height="16" width="490" y="98" as="geometry" />
+          <mxGeometry height="16" width="490" y="130" as="geometry" />
         </mxCell>
         <mxCell id="373" parent="367" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;html=0;" value="+  getLiveRates(): Dictionary&lt;string, decimal&gt;" vertex="1">
-          <mxGeometry height="18" width="340" y="114" as="geometry" />
-        </mxCell>
-        <mxCell id="374" parent="367" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;html=0;" value="+  lockRate(userId: int, pair: string): LockedRate" vertex="1">
-          <mxGeometry height="18" width="340" y="132" as="geometry" />
-        </mxCell>
-        <mxCell id="375" parent="367" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;html=0;" value="+  isRateLockValid(userId: int): bool" vertex="1">
           <mxGeometry height="18" width="340" y="150" as="geometry" />
         </mxCell>
-        <mxCell id="376" parent="367" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;html=0;" value="+  executeExchange(dto: ExchangeDto): ExchangeTransaction" vertex="1">
+        <mxCell id="374" parent="367" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;html=0;" value="+  lockRate(userId: int, pair: string): LockedRate" vertex="1">
           <mxGeometry height="18" width="340" y="168" as="geometry" />
         </mxCell>
-        <mxCell id="377" parent="367" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;html=0;" value="+  calculateTargetAmount(src: decimal, rate: decimal, fee: decimal): decimal" vertex="1">
+        <mxCell id="375" parent="367" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;html=0;" value="+  isRateLockValid(userId: int): bool" vertex="1">
           <mxGeometry height="18" width="340" y="186" as="geometry" />
         </mxCell>
-        <mxCell id="378" parent="367" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;html=0;" value="+  calculateCommission(amount: decimal): decimal" vertex="1">
+        <mxCell id="376" parent="367" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;html=0;" value="+  executeExchange(dto: ExchangeDto): ExchangeTransaction" vertex="1">
           <mxGeometry height="18" width="340" y="204" as="geometry" />
         </mxCell>
-        <mxCell id="379" parent="367" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;html=0;" value="+  checkRateAlerts(): void" vertex="1">
+        <mxCell id="377" parent="367" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;html=0;" value="+  calculateTargetAmount(src: decimal, rate: decimal): decimal" vertex="1">
           <mxGeometry height="18" width="340" y="222" as="geometry" />
         </mxCell>
-        <mxCell id="380" parent="367" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;html=0;" value="+  getAlerts(userId: int): List&lt;RateAlert&gt;" vertex="1">
+        <mxCell id="378" parent="367" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;html=0;" value="+  calculateCommission(amount: decimal): decimal" vertex="1">
           <mxGeometry height="18" width="340" y="240" as="geometry" />
         </mxCell>
-        <mxCell id="381" parent="367" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;html=0;" value="+  createAlert(userId: int, base: string, tgt: string, rate: decimal): RateAlert" vertex="1">
+        <mxCell id="379" parent="367" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;html=0;" value="+  checkRateAlerts(): void" vertex="1">
           <mxGeometry height="18" width="340" y="258" as="geometry" />
         </mxCell>
-        <mxCell id="382" parent="367" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;html=0;" value="+  deleteAlert(id: int): void" vertex="1">
+        <mxCell id="380" parent="367" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;html=0;" value="+  getAlerts(userId: int): List&lt;RateAlert&gt;" vertex="1">
           <mxGeometry height="18" width="340" y="276" as="geometry" />
+        </mxCell>
+        <mxCell id="381" parent="367" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;html=0;" value="+  createAlert(userId: int, base: string, tgt: string, rate: decimal,IsBuyAlert: bool): RateAlert" vertex="1">
+          <mxGeometry height="18" width="340" y="294" as="geometry" />
+        </mxCell>
+        <mxCell id="TshT352-f3w3Xq3bGJP3-497" parent="367" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;html=0;" value="- accountService: AccountService" vertex="1">
+          <mxGeometry height="18" width="340" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="382" parent="367" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;html=0;" value="+  deleteAlert(id: int): void" vertex="1">
+          <mxGeometry height="18" width="340" y="312" as="geometry" />
+        </mxCell>
+        <mxCell id="TshT352-f3w3Xq3bGJP3-499" parent="367" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;html=0;" value="- cachedRates: Dictionary&lt;string,decimal&gt;" vertex="1">
+          <mxGeometry height="18" width="340" y="108" as="geometry" />
         </mxCell>
         <mxCell id="383" parent="1" style="swimlane;fontStyle=1;align=center;startSize=28;fillColor=#2C3E50;strokeColor=#1A2530;fontColor=#FFFFFF;fontSize=11;rounded=1;arcSize=3;" value="ExchangeDto" vertex="1">
           <mxGeometry height="170" width="260" x="2380" y="1420" as="geometry" />
@@ -1223,13 +1234,46 @@
           <mxGeometry height="18" width="260" y="100" as="geometry" />
         </mxCell>
         <mxCell id="417" parent="1" style="swimlane;html=1;fontStyle=1;align=center;startSize=28;fillColor=#444444;strokeColor=#222222;fontColor=#FFFFFF;fontSize=11;rounded=1;arcSize=3;" value="&lt;&lt;EF Core DbContext&gt;&gt;&lt;br&gt;&lt;b&gt;AppDatabase&lt;/b&gt;" vertex="1">
-          <mxGeometry height="70" width="340" x="3060" y="570" as="geometry" />
+          <mxGeometry height="258" width="340" x="3060" y="570" as="geometry" />
+        </mxCell>
+        <mxCell id="418" parent="417" style="text;strokeColor=#888888;fillColor=#E8E8F0;align=left;verticalAlign=middle;spacingLeft=6;fontSize=9;fontStyle=1;html=0;" value="DbSets" vertex="1">
+          <mxGeometry height="16" width="340" y="28" as="geometry" />
+        </mxCell>
+        <mxCell id="419" parent="417" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;html=0;" value="+  Transfers: DbSet&lt;Transfer&gt;" vertex="1">
+          <mxGeometry height="18" width="340" y="44" as="geometry" />
+        </mxCell>
+        <mxCell id="420" parent="417" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;html=0;" value="+  Beneficiaries: DbSet&lt;Beneficiary&gt;" vertex="1">
+          <mxGeometry height="18" width="340" y="62" as="geometry" />
+        </mxCell>
+        <mxCell id="421" parent="417" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;html=0;" value="+  BillPayments: DbSet&lt;BillPayment&gt;" vertex="1">
+          <mxGeometry height="18" width="340" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="422" parent="417" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;html=0;" value="+  Billers: DbSet&lt;Biller&gt;" vertex="1">
+          <mxGeometry height="18" width="340" y="98" as="geometry" />
+        </mxCell>
+        <mxCell id="423" parent="417" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;html=0;" value="+  SavedBillers: DbSet&lt;SavedBiller&gt;" vertex="1">
+          <mxGeometry height="18" width="340" y="116" as="geometry" />
+        </mxCell>
+        <mxCell id="424" parent="417" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;html=0;" value="+  RecurringPayments: DbSet&lt;RecurringPayment&gt;" vertex="1">
+          <mxGeometry height="18" width="340" y="134" as="geometry" />
+        </mxCell>
+        <mxCell id="425" parent="417" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;html=0;" value="+  ExchangeTransactions: DbSet&lt;ExchangeTransaction&gt;" vertex="1">
+          <mxGeometry height="18" width="340" y="152" as="geometry" />
+        </mxCell>
+        <mxCell id="426" parent="417" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;html=0;" value="+  RateAlerts: DbSet&lt;RateAlert&gt;" vertex="1">
+          <mxGeometry height="18" width="340" y="170" as="geometry" />
+        </mxCell>
+        <mxCell id="427" parent="417" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;html=0;" value="+  Transactions: DbSet&lt;Transaction&gt;" vertex="1">
+          <mxGeometry height="18" width="340" y="188" as="geometry" />
         </mxCell>
         <mxCell id="428" parent="417" style="text;strokeColor=#888888;fillColor=#E8E8F0;align=left;verticalAlign=middle;spacingLeft=6;fontSize=9;fontStyle=1;html=0;" value="Methods" vertex="1">
-          <mxGeometry height="16" width="340" y="30" as="geometry" />
+          <mxGeometry height="16" width="340" y="206" as="geometry" />
         </mxCell>
-        <mxCell id="429" parent="417" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;html=0;" value="+  GetConnection(): SqlConnection" vertex="1">
-          <mxGeometry height="18" width="340" y="46" as="geometry" />
+        <mxCell id="429" parent="417" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;html=0;" value="+  saveChanges(): int" vertex="1">
+          <mxGeometry height="18" width="340" y="222" as="geometry" />
+        </mxCell>
+        <mxCell id="430" parent="417" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;html=0;" value="+  saveChangesAsync(): Task&lt;int&gt;" vertex="1">
+          <mxGeometry height="18" width="340" y="240" as="geometry" />
         </mxCell>
         <mxCell id="431" parent="1" style="swimlane;html=1;fontStyle=1;align=center;startSize=28;fillColor=#444444;strokeColor=#222222;fontColor=#FFFFFF;fontSize=11;rounded=1;arcSize=3;" value="&lt;&lt;external — Team A&gt;&gt;&lt;br&gt;&lt;b&gt;Account&lt;/b&gt;" vertex="1">
           <mxGeometry height="152" width="260" x="3060" y="940" as="geometry" />
@@ -1456,6 +1500,9 @@
         </mxCell>
         <mxCell id="496" edge="1" parent="1" source="313" style="dashed=1;endArrow=open;endFill=0;strokeColor=#6B3A00;strokeWidth=1.2;" target="431" value="references">
           <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="347" parent="1" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;html=0;" value="+  setTriggered(v: bool): void" vertex="1">
+          <mxGeometry height="18" width="260" x="3640" y="-520" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>

@@ -1,288 +1,684 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<mxfile host="app.diagrams.net" version="21.0.0">
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36" version="29.6.6">
   <diagram id="teamb-vm-view" name="Team B – ViewModels and Views">
-    <mxGraphModel dx="1800" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="4200" pageHeight="2800" math="0" shadow="0">
+    <mxGraphModel dx="1272" dy="802" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="4200" pageHeight="2800" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-
-        <!-- ==================== SECTION LABELS ==================== -->
-        <mxCell id="lbl_infra" value="INFRASTRUCTURE" style="text;fontStyle=1;fontSize=13;fontColor=#AAAAAA;align=left;" vertex="1" parent="1"><mxGeometry x="40" y="10" width="300" height="24" as="geometry"/></mxCell>
-        <mxCell id="lbl_transfer" value="MODULE: MONEY TRANSFER" style="text;fontStyle=1;fontSize=13;fontColor=#AAAAAA;align=left;" vertex="1" parent="1"><mxGeometry x="40" y="370" width="400" height="24" as="geometry"/></mxCell>
-        <mxCell id="lbl_bill" value="MODULE: BILL PAYMENT" style="text;fontStyle=1;fontSize=13;fontColor=#AAAAAA;align=left;" vertex="1" parent="1"><mxGeometry x="1460" y="370" width="400" height="24" as="geometry"/></mxCell>
-        <mxCell id="lbl_fx" value="MODULE: CURRENCY EXCHANGE" style="text;fontStyle=1;fontSize=13;fontColor=#AAAAAA;align=left;" vertex="1" parent="1"><mxGeometry x="2860" y="370" width="400" height="24" as="geometry"/></mxCell>
-
-        <!-- ==================== INFRASTRUCTURE ==================== -->
-
-        <!-- ViewModelBase -->
-        <mxCell id="vmbase" value="ViewModelBase" style="swimlane;fontStyle=1;align=center;startSize=28;fillColor=#2D4A22;strokeColor=#1A2E12;fontColor=#FFFFFF;fontSize=11;rounded=1;arcSize=3;" vertex="1" parent="1"><mxGeometry x="40" y="40" width="320" height="110" as="geometry"/></mxCell>
-        <mxCell id="vmbase_s1" value="Properties" style="text;strokeColor=#888888;fillColor=#E8E8F0;align=left;verticalAlign=middle;spacingLeft=6;fontSize=9;fontStyle=1;" vertex="1" parent="vmbase"><mxGeometry y="28" width="320" height="16" as="geometry"/></mxCell>
-        <mxCell id="vmbase_p1" value="#  PropertyChanged: event" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="vmbase"><mxGeometry y="44" width="320" height="18" as="geometry"/></mxCell>
-        <mxCell id="vmbase_s2" value="Methods" style="text;strokeColor=#888888;fillColor=#E8E8F0;align=left;verticalAlign=middle;spacingLeft=6;fontSize=9;fontStyle=1;" vertex="1" parent="vmbase"><mxGeometry y="62" width="320" height="16" as="geometry"/></mxCell>
-        <mxCell id="vmbase_m1" value="#  SetProperty(ref T field, T value): bool" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="vmbase"><mxGeometry y="78" width="320" height="18" as="geometry"/></mxCell>
-        <mxCell id="vmbase_m2" value="#  OnPropertyChanged(name): void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="vmbase"><mxGeometry y="96" width="320" height="14" as="geometry"/></mxCell>
-
-        <!-- RelayCommand -->
-        <mxCell id="relay" value="RelayCommand" style="swimlane;fontStyle=1;align=center;startSize=28;fillColor=#2D4A22;strokeColor=#1A2E12;fontColor=#FFFFFF;fontSize=11;rounded=1;arcSize=3;" vertex="1" parent="1"><mxGeometry x="380" y="40" width="320" height="110" as="geometry"/></mxCell>
-        <mxCell id="relay_s1" value="Properties" style="text;strokeColor=#888888;fillColor=#E8E8F0;align=left;verticalAlign=middle;spacingLeft=6;fontSize=9;fontStyle=1;" vertex="1" parent="relay"><mxGeometry y="28" width="320" height="16" as="geometry"/></mxCell>
-        <mxCell id="relay_p1" value="-  _execute: Action" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="relay"><mxGeometry y="44" width="320" height="18" as="geometry"/></mxCell>
-        <mxCell id="relay_p2" value="-  _canExecute: Func (nullable)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="relay"><mxGeometry y="62" width="320" height="18" as="geometry"/></mxCell>
-        <mxCell id="relay_s2" value="Methods" style="text;strokeColor=#888888;fillColor=#E8E8F0;align=left;verticalAlign=middle;spacingLeft=6;fontSize=9;fontStyle=1;" vertex="1" parent="relay"><mxGeometry y="80" width="320" height="16" as="geometry"/></mxCell>
-        <mxCell id="relay_m1" value="+  Execute(param): void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="relay"><mxGeometry y="96" width="320" height="14" as="geometry"/></mxCell>
-
-        <!-- AsyncRelayCommand -->
-        <mxCell id="asyncrelay" value="AsyncRelayCommand" style="swimlane;fontStyle=1;align=center;startSize=28;fillColor=#2D4A22;strokeColor=#1A2E12;fontColor=#FFFFFF;fontSize=11;rounded=1;arcSize=3;" vertex="1" parent="1"><mxGeometry x="720" y="40" width="320" height="110" as="geometry"/></mxCell>
-        <mxCell id="asyncrelay_s1" value="Properties" style="text;strokeColor=#888888;fillColor=#E8E8F0;align=left;verticalAlign=middle;spacingLeft=6;fontSize=9;fontStyle=1;" vertex="1" parent="asyncrelay"><mxGeometry y="28" width="320" height="16" as="geometry"/></mxCell>
-        <mxCell id="asyncrelay_p1" value="-  _execute: Func returning Task" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="asyncrelay"><mxGeometry y="44" width="320" height="18" as="geometry"/></mxCell>
-        <mxCell id="asyncrelay_p2" value="-  _isExecuting: bool" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="asyncrelay"><mxGeometry y="62" width="320" height="18" as="geometry"/></mxCell>
-        <mxCell id="asyncrelay_s2" value="Methods" style="text;strokeColor=#888888;fillColor=#E8E8F0;align=left;verticalAlign=middle;spacingLeft=6;fontSize=9;fontStyle=1;" vertex="1" parent="asyncrelay"><mxGeometry y="80" width="320" height="16" as="geometry"/></mxCell>
-        <mxCell id="asyncrelay_m1" value="+  ExecuteAsync(param): Task" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="asyncrelay"><mxGeometry y="96" width="320" height="14" as="geometry"/></mxCell>
-
-        <!-- NavigationService -->
-        <mxCell id="navsvc" value="NavigationService" style="swimlane;fontStyle=1;align=center;startSize=28;fillColor=#2D4A22;strokeColor=#1A2E12;fontColor=#FFFFFF;fontSize=11;rounded=1;arcSize=3;" vertex="1" parent="1"><mxGeometry x="1060" y="40" width="320" height="110" as="geometry"/></mxCell>
-        <mxCell id="navsvc_s1" value="Properties" style="text;strokeColor=#888888;fillColor=#E8E8F0;align=left;verticalAlign=middle;spacingLeft=6;fontSize=9;fontStyle=1;" vertex="1" parent="navsvc"><mxGeometry y="28" width="320" height="16" as="geometry"/></mxCell>
-        <mxCell id="navsvc_p1" value="+  Frame: Frame (static)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="navsvc"><mxGeometry y="44" width="320" height="18" as="geometry"/></mxCell>
-        <mxCell id="navsvc_s2" value="Methods" style="text;strokeColor=#888888;fillColor=#E8E8F0;align=left;verticalAlign=middle;spacingLeft=6;fontSize=9;fontStyle=1;" vertex="1" parent="navsvc"><mxGeometry y="62" width="320" height="16" as="geometry"/></mxCell>
-        <mxCell id="navsvc_m1" value="+  NavigateTo(param?): void (static)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="navsvc"><mxGeometry y="78" width="320" height="18" as="geometry"/></mxCell>
-        <mxCell id="navsvc_m2" value="+  GoBack(): void (static)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="navsvc"><mxGeometry y="96" width="320" height="14" as="geometry"/></mxCell>
-
-        <!-- MainWindow -->
-        <mxCell id="mainwin" value="MainWindow" style="swimlane;fontStyle=1;align=center;startSize=28;fillColor=#4A1A1A;strokeColor=#2E0D0D;fontColor=#FFFFFF;fontSize=11;rounded=1;arcSize=3;" vertex="1" parent="1"><mxGeometry x="1400" y="40" width="320" height="92" as="geometry"/></mxCell>
-        <mxCell id="mainwin_s1" value="Properties" style="text;strokeColor=#888888;fillColor=#E8E8F0;align=left;verticalAlign=middle;spacingLeft=6;fontSize=9;fontStyle=1;" vertex="1" parent="mainwin"><mxGeometry y="28" width="320" height="16" as="geometry"/></mxCell>
-        <mxCell id="mainwin_p1" value="-  _navigationView: NavigationView" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="mainwin"><mxGeometry y="44" width="320" height="18" as="geometry"/></mxCell>
-        <mxCell id="mainwin_s2" value="Methods" style="text;strokeColor=#888888;fillColor=#E8E8F0;align=left;verticalAlign=middle;spacingLeft=6;fontSize=9;fontStyle=1;" vertex="1" parent="mainwin"><mxGeometry y="62" width="320" height="16" as="geometry"/></mxCell>
-        <mxCell id="mainwin_m1" value="+  OnNavigationItemSelected(sender, args): void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="mainwin"><mxGeometry y="78" width="320" height="14" as="geometry"/></mxCell>
-
-        <!-- ==================== MONEY TRANSFER VIEWMODELS ==================== -->
-
-        <!-- TransferViewModel -->
-        <mxCell id="transfervm" value="TransferViewModel" style="swimlane;fontStyle=1;align=center;startSize=28;fillColor=#1B3A5C;strokeColor=#0D2137;fontColor=#FFFFFF;fontSize=11;rounded=1;arcSize=3;" vertex="1" parent="1"><mxGeometry x="40" y="400" width="360" height="400" as="geometry"/></mxCell>
-        <mxCell id="transfervm_s1" value="Properties" style="text;strokeColor=#888888;fillColor=#E8E8F0;align=left;verticalAlign=middle;spacingLeft=6;fontSize=9;fontStyle=1;" vertex="1" parent="transfervm"><mxGeometry y="28" width="360" height="16" as="geometry"/></mxCell>
-        <mxCell id="transfervm_p1" value="-  CurrentStep: int" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="transfervm"><mxGeometry y="44" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="transfervm_p2" value="-  Accounts: ObservableCollection of Account" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="transfervm"><mxGeometry y="62" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="transfervm_p3" value="-  SelectedAccount: Account?" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="transfervm"><mxGeometry y="80" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="transfervm_p4" value="-  RecipientName: string" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="transfervm"><mxGeometry y="98" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="transfervm_p5" value="-  RecipientIBAN: string" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="transfervm"><mxGeometry y="116" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="transfervm_p6" value="-  IsIBANValid: bool" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="transfervm"><mxGeometry y="134" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="transfervm_p7" value="-  BankName: string" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="transfervm"><mxGeometry y="152" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="transfervm_p8" value="-  Amount: decimal" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="transfervm"><mxGeometry y="170" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="transfervm_p9" value="-  Currency: string" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="transfervm"><mxGeometry y="188" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="transfervm_p10" value="-  FxPreviewText: string" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="transfervm"><mxGeometry y="206" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="transfervm_p11" value="-  TwoFAToken: string" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="transfervm"><mxGeometry y="224" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="transfervm_p12" value="-  Requires2FA: bool" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="transfervm"><mxGeometry y="242" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="transfervm_p13" value="-  TransactionRef: string" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="transfervm"><mxGeometry y="260" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="transfervm_p14" value="-  ErrorMessage: string" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="transfervm"><mxGeometry y="278" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="transfervm_s2" value="Methods" style="text;strokeColor=#888888;fillColor=#E8E8F0;align=left;verticalAlign=middle;spacingLeft=6;fontSize=9;fontStyle=1;" vertex="1" parent="transfervm"><mxGeometry y="296" width="360" height="16" as="geometry"/></mxCell>
-        <mxCell id="transfervm_m1" value="+  LoadAccountsAsync(): Task" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="transfervm"><mxGeometry y="312" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="transfervm_m2" value="+  NextStepCommand: ICommand" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="transfervm"><mxGeometry y="330" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="transfervm_m3" value="+  TransferCommand: ICommand" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="transfervm"><mxGeometry y="348" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="transfervm_m4" value="+  CancelCommand: ICommand" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="transfervm"><mxGeometry y="366" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="transfervm_m5" value="+  SendAgainCommand: ICommand" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="transfervm"><mxGeometry y="384" width="360" height="16" as="geometry"/></mxCell>
-
-        <!-- BeneficiariesViewModel -->
-        <mxCell id="benvm" value="BeneficiariesViewModel" style="swimlane;fontStyle=1;align=center;startSize=28;fillColor=#1B3A5C;strokeColor=#0D2137;fontColor=#FFFFFF;fontSize=11;rounded=1;arcSize=3;" vertex="1" parent="1"><mxGeometry x="420" y="400" width="360" height="310" as="geometry"/></mxCell>
-        <mxCell id="benvm_s1" value="Properties" style="text;strokeColor=#888888;fillColor=#E8E8F0;align=left;verticalAlign=middle;spacingLeft=6;fontSize=9;fontStyle=1;" vertex="1" parent="benvm"><mxGeometry y="28" width="360" height="16" as="geometry"/></mxCell>
-        <mxCell id="benvm_p1" value="-  Beneficiaries: ObservableCollection of Beneficiary" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="benvm"><mxGeometry y="44" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="benvm_p2" value="-  SelectedBeneficiary: Beneficiary?" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="benvm"><mxGeometry y="62" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="benvm_p3" value="-  NewName: string" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="benvm"><mxGeometry y="80" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="benvm_p4" value="-  NewIBAN: string" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="benvm"><mxGeometry y="98" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="benvm_p5" value="-  NewBankName: string" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="benvm"><mxGeometry y="116" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="benvm_p6" value="-  ErrorMessage: string" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="benvm"><mxGeometry y="134" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="benvm_p7" value="-  IsAddFormVisible: bool" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="benvm"><mxGeometry y="152" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="benvm_s2" value="Methods" style="text;strokeColor=#888888;fillColor=#E8E8F0;align=left;verticalAlign=middle;spacingLeft=6;fontSize=9;fontStyle=1;" vertex="1" parent="benvm"><mxGeometry y="170" width="360" height="16" as="geometry"/></mxCell>
-        <mxCell id="benvm_m1" value="+  LoadAsync(): Task" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="benvm"><mxGeometry y="186" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="benvm_m2" value="+  AddCommand: ICommand" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="benvm"><mxGeometry y="204" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="benvm_m3" value="+  DeleteCommand: ICommand" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="benvm"><mxGeometry y="222" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="benvm_m4" value="+  SelectCommand: ICommand" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="benvm"><mxGeometry y="240" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="benvm_m5" value="+  ShowAddFormCommand: ICommand" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="benvm"><mxGeometry y="258" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="benvm_m6" value="+  UseForTransferCommand: ICommand" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="benvm"><mxGeometry y="276" width="360" height="16" as="geometry"/></mxCell>
-
-        <!-- ==================== MONEY TRANSFER VIEWS ==================== -->
-
-        <!-- TransferPage -->
-        <mxCell id="transferpage" value="TransferPage" style="swimlane;fontStyle=1;align=center;startSize=28;fillColor=#4A1A1A;strokeColor=#2E0D0D;fontColor=#FFFFFF;fontSize=11;rounded=1;arcSize=3;" vertex="1" parent="1"><mxGeometry x="40" y="830" width="360" height="220" as="geometry"/></mxCell>
-        <mxCell id="transferpage_s1" value="Properties" style="text;strokeColor=#888888;fillColor=#E8E8F0;align=left;verticalAlign=middle;spacingLeft=6;fontSize=9;fontStyle=1;" vertex="1" parent="transferpage"><mxGeometry y="28" width="360" height="16" as="geometry"/></mxCell>
-        <mxCell id="transferpage_p1" value="-  ViewModel: TransferViewModel" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="transferpage"><mxGeometry y="44" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="transferpage_s2" value="UI Elements" style="text;strokeColor=#888888;fillColor=#E8E8F0;align=left;verticalAlign=middle;spacingLeft=6;fontSize=9;fontStyle=1;" vertex="1" parent="transferpage"><mxGeometry y="62" width="360" height="16" as="geometry"/></mxCell>
-        <mxCell id="transferpage_u1" value="Step 1: account ComboBox" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="transferpage"><mxGeometry y="78" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="transferpage_u2" value="Step 2: recipient name + IBAN TextBox" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="transferpage"><mxGeometry y="96" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="transferpage_u3" value="Step 3: amount + currency + FX preview" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="transferpage"><mxGeometry y="114" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="transferpage_u4" value="Step 4: review summary + 2FA TextBox" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="transferpage"><mxGeometry y="132" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="transferpage_u5" value="Step 5: loading indicator" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="transferpage"><mxGeometry y="150" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="transferpage_u6" value="Step 6: result screen with ref or error" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="transferpage"><mxGeometry y="168" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="transferpage_s3" value="Methods" style="text;strokeColor=#888888;fillColor=#E8E8F0;align=left;verticalAlign=middle;spacingLeft=6;fontSize=9;fontStyle=1;" vertex="1" parent="transferpage"><mxGeometry y="186" width="360" height="16" as="geometry"/></mxCell>
-        <mxCell id="transferpage_m1" value="+  OnNavigatedTo(e): void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="transferpage"><mxGeometry y="202" width="360" height="18" as="geometry"/></mxCell>
-
-        <!-- BeneficiariesPage -->
-        <mxCell id="benpage" value="BeneficiariesPage" style="swimlane;fontStyle=1;align=center;startSize=28;fillColor=#4A1A1A;strokeColor=#2E0D0D;fontColor=#FFFFFF;fontSize=11;rounded=1;arcSize=3;" vertex="1" parent="1"><mxGeometry x="420" y="830" width="360" height="166" as="geometry"/></mxCell>
-        <mxCell id="benpage_s1" value="Properties" style="text;strokeColor=#888888;fillColor=#E8E8F0;align=left;verticalAlign=middle;spacingLeft=6;fontSize=9;fontStyle=1;" vertex="1" parent="benpage"><mxGeometry y="28" width="360" height="16" as="geometry"/></mxCell>
-        <mxCell id="benpage_p1" value="-  ViewModel: BeneficiariesViewModel" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="benpage"><mxGeometry y="44" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="benpage_s2" value="UI Elements" style="text;strokeColor=#888888;fillColor=#E8E8F0;align=left;verticalAlign=middle;spacingLeft=6;fontSize=9;fontStyle=1;" vertex="1" parent="benpage"><mxGeometry y="62" width="360" height="16" as="geometry"/></mxCell>
-        <mxCell id="benpage_u1" value="ListView: beneficiary list (Use / Delete)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="benpage"><mxGeometry y="78" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="benpage_u2" value="Add form: Name, IBAN, BankName TextBoxes" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="benpage"><mxGeometry y="96" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="benpage_u3" value="ErrorMessage TextBlock" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="benpage"><mxGeometry y="114" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="benpage_s3" value="Methods" style="text;strokeColor=#888888;fillColor=#E8E8F0;align=left;verticalAlign=middle;spacingLeft=6;fontSize=9;fontStyle=1;" vertex="1" parent="benpage"><mxGeometry y="132" width="360" height="16" as="geometry"/></mxCell>
-        <mxCell id="benpage_m1" value="+  OnNavigatedTo(e): void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="benpage"><mxGeometry y="148" width="360" height="18" as="geometry"/></mxCell>
-
-        <!-- ==================== BILL PAYMENT VIEWMODELS ==================== -->
-
-        <!-- BillPayViewModel -->
-        <mxCell id="billvm" value="BillPayViewModel" style="swimlane;fontStyle=1;align=center;startSize=28;fillColor=#1B3A5C;strokeColor=#0D2137;fontColor=#FFFFFF;fontSize=11;rounded=1;arcSize=3;" vertex="1" parent="1"><mxGeometry x="1460" y="400" width="360" height="400" as="geometry"/></mxCell>
-        <mxCell id="billvm_s1" value="Properties" style="text;strokeColor=#888888;fillColor=#E8E8F0;align=left;verticalAlign=middle;spacingLeft=6;fontSize=9;fontStyle=1;" vertex="1" parent="billvm"><mxGeometry y="28" width="360" height="16" as="geometry"/></mxCell>
-        <mxCell id="billvm_p1" value="-  CurrentStep: int" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="billvm"><mxGeometry y="44" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="billvm_p2" value="-  Billers: ObservableCollection of Biller" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="billvm"><mxGeometry y="62" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="billvm_p3" value="-  SavedBillers: ObservableCollection of SavedBiller" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="billvm"><mxGeometry y="80" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="billvm_p4" value="-  SelectedBiller: Biller?" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="billvm"><mxGeometry y="98" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="billvm_p5" value="-  SearchQuery: string" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="billvm"><mxGeometry y="116" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="billvm_p6" value="-  SelectedCategory: string?" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="billvm"><mxGeometry y="134" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="billvm_p7" value="-  BillerReference: string" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="billvm"><mxGeometry y="152" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="billvm_p8" value="-  Amount: decimal" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="billvm"><mxGeometry y="170" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="billvm_p9" value="-  IsPayInFull: bool" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="billvm"><mxGeometry y="188" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="billvm_p10" value="-  SelectedAccount: Account?" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="billvm"><mxGeometry y="206" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="billvm_p11" value="-  Fee: decimal" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="billvm"><mxGeometry y="224" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="billvm_p12" value="-  ReceiptNumber: string" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="billvm"><mxGeometry y="242" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="billvm_p13" value="-  ErrorMessage: string" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="billvm"><mxGeometry y="260" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="billvm_s2" value="Methods" style="text;strokeColor=#888888;fillColor=#E8E8F0;align=left;verticalAlign=middle;spacingLeft=6;fontSize=9;fontStyle=1;" vertex="1" parent="billvm"><mxGeometry y="278" width="360" height="16" as="geometry"/></mxCell>
-        <mxCell id="billvm_m1" value="+  LoadAsync(): Task" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="billvm"><mxGeometry y="294" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="billvm_m2" value="+  SearchCommand: ICommand" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="billvm"><mxGeometry y="312" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="billvm_m3" value="+  SelectBillerCommand: ICommand" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="billvm"><mxGeometry y="330" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="billvm_m4" value="+  PayBillCommand: ICommand" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="billvm"><mxGeometry y="348" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="billvm_m5" value="+  NextStepCommand: ICommand" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="billvm"><mxGeometry y="366" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="billvm_m6" value="+  CancelCommand: ICommand" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="billvm"><mxGeometry y="384" width="360" height="16" as="geometry"/></mxCell>
-
-        <!-- RecurringPaymentViewModel -->
-        <mxCell id="recurvm" value="RecurringPaymentViewModel" style="swimlane;fontStyle=1;align=center;startSize=28;fillColor=#1B3A5C;strokeColor=#0D2137;fontColor=#FFFFFF;fontSize=11;rounded=1;arcSize=3;" vertex="1" parent="1"><mxGeometry x="1840" y="400" width="360" height="330" as="geometry"/></mxCell>
-        <mxCell id="recurvm_s1" value="Properties" style="text;strokeColor=#888888;fillColor=#E8E8F0;align=left;verticalAlign=middle;spacingLeft=6;fontSize=9;fontStyle=1;" vertex="1" parent="recurvm"><mxGeometry y="28" width="360" height="16" as="geometry"/></mxCell>
-        <mxCell id="recurvm_p1" value="-  Payments: ObservableCollection of RecurringPayment" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="recurvm"><mxGeometry y="44" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="recurvm_p2" value="-  SelectedPayment: RecurringPayment?" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="recurvm"><mxGeometry y="62" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="recurvm_p3" value="-  SelectedBillerId: int" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="recurvm"><mxGeometry y="80" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="recurvm_p4" value="-  Amount: decimal" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="recurvm"><mxGeometry y="98" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="recurvm_p5" value="-  Frequency: string" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="recurvm"><mxGeometry y="116" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="recurvm_p6" value="-  StartDate: DateTime" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="recurvm"><mxGeometry y="134" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="recurvm_p7" value="-  EndDate: DateTime?" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="recurvm"><mxGeometry y="152" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="recurvm_p8" value="-  IsPayInFull: bool" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="recurvm"><mxGeometry y="170" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="recurvm_p9" value="-  ErrorMessage: string" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="recurvm"><mxGeometry y="188" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="recurvm_s2" value="Methods" style="text;strokeColor=#888888;fillColor=#E8E8F0;align=left;verticalAlign=middle;spacingLeft=6;fontSize=9;fontStyle=1;" vertex="1" parent="recurvm"><mxGeometry y="206" width="360" height="16" as="geometry"/></mxCell>
-        <mxCell id="recurvm_m1" value="+  LoadAsync(): Task" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="recurvm"><mxGeometry y="222" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="recurvm_m2" value="+  CreateCommand: ICommand" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="recurvm"><mxGeometry y="240" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="recurvm_m3" value="+  PauseCommand: ICommand" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="recurvm"><mxGeometry y="258" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="recurvm_m4" value="+  ResumeCommand: ICommand" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="recurvm"><mxGeometry y="276" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="recurvm_m5" value="+  CancelCommand: ICommand" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="recurvm"><mxGeometry y="294" width="360" height="16" as="geometry"/></mxCell>
-
-        <!-- ==================== BILL PAYMENT VIEWS ==================== -->
-
-        <!-- BillPayPage -->
-        <mxCell id="billpage" value="BillPayPage" style="swimlane;fontStyle=1;align=center;startSize=28;fillColor=#4A1A1A;strokeColor=#2E0D0D;fontColor=#FFFFFF;fontSize=11;rounded=1;arcSize=3;" vertex="1" parent="1"><mxGeometry x="1460" y="830" width="360" height="202" as="geometry"/></mxCell>
-        <mxCell id="billpage_s1" value="Properties" style="text;strokeColor=#888888;fillColor=#E8E8F0;align=left;verticalAlign=middle;spacingLeft=6;fontSize=9;fontStyle=1;" vertex="1" parent="billpage"><mxGeometry y="28" width="360" height="16" as="geometry"/></mxCell>
-        <mxCell id="billpage_p1" value="-  ViewModel: BillPayViewModel" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="billpage"><mxGeometry y="44" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="billpage_s2" value="UI Elements" style="text;strokeColor=#888888;fillColor=#E8E8F0;align=left;verticalAlign=middle;spacingLeft=6;fontSize=9;fontStyle=1;" vertex="1" parent="billpage"><mxGeometry y="62" width="360" height="16" as="geometry"/></mxCell>
-        <mxCell id="billpage_u1" value="Step 1: AutoSuggestBox search + category ComboBox" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="billpage"><mxGeometry y="78" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="billpage_u2" value="Step 1: biller ListView" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="billpage"><mxGeometry y="96" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="billpage_u3" value="Step 2: reference TextBox + amount + IsPayInFull" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="billpage"><mxGeometry y="114" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="billpage_u4" value="Step 3: review summary + fee display" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="billpage"><mxGeometry y="132" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="billpage_u5" value="Step 4: receipt number display" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="billpage"><mxGeometry y="150" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="billpage_s3" value="Methods" style="text;strokeColor=#888888;fillColor=#E8E8F0;align=left;verticalAlign=middle;spacingLeft=6;fontSize=9;fontStyle=1;" vertex="1" parent="billpage"><mxGeometry y="168" width="360" height="16" as="geometry"/></mxCell>
-        <mxCell id="billpage_m1" value="+  OnNavigatedTo(e): void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="billpage"><mxGeometry y="184" width="360" height="18" as="geometry"/></mxCell>
-
-        <!-- RecurringPaymentsPage -->
-        <mxCell id="recurpage" value="RecurringPaymentsPage" style="swimlane;fontStyle=1;align=center;startSize=28;fillColor=#4A1A1A;strokeColor=#2E0D0D;fontColor=#FFFFFF;fontSize=11;rounded=1;arcSize=3;" vertex="1" parent="1"><mxGeometry x="1840" y="830" width="360" height="166" as="geometry"/></mxCell>
-        <mxCell id="recurpage_s1" value="Properties" style="text;strokeColor=#888888;fillColor=#E8E8F0;align=left;verticalAlign=middle;spacingLeft=6;fontSize=9;fontStyle=1;" vertex="1" parent="recurpage"><mxGeometry y="28" width="360" height="16" as="geometry"/></mxCell>
-        <mxCell id="recurpage_p1" value="-  ViewModel: RecurringPaymentViewModel" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="recurpage"><mxGeometry y="44" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="recurpage_s2" value="UI Elements" style="text;strokeColor=#888888;fillColor=#E8E8F0;align=left;verticalAlign=middle;spacingLeft=6;fontSize=9;fontStyle=1;" vertex="1" parent="recurpage"><mxGeometry y="62" width="360" height="16" as="geometry"/></mxCell>
-        <mxCell id="recurpage_u1" value="ListView: payments (Pause / Resume / Cancel)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="recurpage"><mxGeometry y="78" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="recurpage_u2" value="Setup form: biller, amount, frequency, dates" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="recurpage"><mxGeometry y="96" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="recurpage_u3" value="ErrorMessage TextBlock" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="recurpage"><mxGeometry y="114" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="recurpage_s3" value="Methods" style="text;strokeColor=#888888;fillColor=#E8E8F0;align=left;verticalAlign=middle;spacingLeft=6;fontSize=9;fontStyle=1;" vertex="1" parent="recurpage"><mxGeometry y="132" width="360" height="16" as="geometry"/></mxCell>
-        <mxCell id="recurpage_m1" value="+  OnNavigatedTo(e): void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="recurpage"><mxGeometry y="148" width="360" height="18" as="geometry"/></mxCell>
-
-        <!-- ==================== FX VIEWMODELS ==================== -->
-
-        <!-- FXViewModel -->
-        <mxCell id="fxvm" value="FXViewModel" style="swimlane;fontStyle=1;align=center;startSize=28;fillColor=#1B3A5C;strokeColor=#0D2137;fontColor=#FFFFFF;fontSize=11;rounded=1;arcSize=3;" vertex="1" parent="1"><mxGeometry x="2860" y="400" width="360" height="420" as="geometry"/></mxCell>
-        <mxCell id="fxvm_s1" value="Properties" style="text;strokeColor=#888888;fillColor=#E8E8F0;align=left;verticalAlign=middle;spacingLeft=6;fontSize=9;fontStyle=1;" vertex="1" parent="fxvm"><mxGeometry y="28" width="360" height="16" as="geometry"/></mxCell>
-        <mxCell id="fxvm_p1" value="-  CurrentStep: int" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="fxvm"><mxGeometry y="44" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="fxvm_p2" value="-  Accounts: ObservableCollection of Account" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="fxvm"><mxGeometry y="62" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="fxvm_p3" value="-  SourceAccount: Account?" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="fxvm"><mxGeometry y="80" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="fxvm_p4" value="-  TargetAccount: Account?" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="fxvm"><mxGeometry y="98" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="fxvm_p5" value="-  SourceCurrency: string" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="fxvm"><mxGeometry y="116" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="fxvm_p6" value="-  TargetCurrency: string" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="fxvm"><mxGeometry y="134" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="fxvm_p7" value="-  Amount: decimal" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="fxvm"><mxGeometry y="152" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="fxvm_p8" value="-  LiveRate: decimal" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="fxvm"><mxGeometry y="170" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="fxvm_p9" value="-  Commission: decimal" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="fxvm"><mxGeometry y="188" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="fxvm_p10" value="-  TargetAmount: decimal" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="fxvm"><mxGeometry y="206" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="fxvm_p11" value="-  SecondsRemaining: int" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="fxvm"><mxGeometry y="224" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="fxvm_p12" value="-  IsRateExpired: bool" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="fxvm"><mxGeometry y="242" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="fxvm_p13" value="-  TransactionRef: string" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="fxvm"><mxGeometry y="260" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="fxvm_p14" value="-  ErrorMessage: string" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="fxvm"><mxGeometry y="278" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="fxvm_s2" value="Methods" style="text;strokeColor=#888888;fillColor=#E8E8F0;align=left;verticalAlign=middle;spacingLeft=6;fontSize=9;fontStyle=1;" vertex="1" parent="fxvm"><mxGeometry y="296" width="360" height="16" as="geometry"/></mxCell>
-        <mxCell id="fxvm_m1" value="+  LoadAccountsAsync(): Task" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="fxvm"><mxGeometry y="312" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="fxvm_m2" value="+  LoadRatesCommand: ICommand" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="fxvm"><mxGeometry y="330" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="fxvm_m3" value="+  LockRateCommand: ICommand" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="fxvm"><mxGeometry y="348" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="fxvm_m4" value="+  ExecuteExchangeCommand: ICommand" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="fxvm"><mxGeometry y="366" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="fxvm_m5" value="+  CancelCommand: ICommand" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="fxvm"><mxGeometry y="384" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="fxvm_m6" value="-  StartCountdownTimer(): void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="fxvm"><mxGeometry y="402" width="360" height="18" as="geometry"/></mxCell>
-
-        <!-- RateAlertViewModel -->
-        <mxCell id="alertvm" value="RateAlertViewModel" style="swimlane;fontStyle=1;align=center;startSize=28;fillColor=#1B3A5C;strokeColor=#0D2137;fontColor=#FFFFFF;fontSize=11;rounded=1;arcSize=3;" vertex="1" parent="1"><mxGeometry x="3240" y="400" width="360" height="290" as="geometry"/></mxCell>
-        <mxCell id="alertvm_s1" value="Properties" style="text;strokeColor=#888888;fillColor=#E8E8F0;align=left;verticalAlign=middle;spacingLeft=6;fontSize=9;fontStyle=1;" vertex="1" parent="alertvm"><mxGeometry y="28" width="360" height="16" as="geometry"/></mxCell>
-        <mxCell id="alertvm_p1" value="-  Alerts: ObservableCollection of RateAlert" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="alertvm"><mxGeometry y="44" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="alertvm_p2" value="-  BaseCurrency: string" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="alertvm"><mxGeometry y="62" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="alertvm_p3" value="-  TargetCurrency: string" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="alertvm"><mxGeometry y="80" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="alertvm_p4" value="-  TargetRate: decimal" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="alertvm"><mxGeometry y="98" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="alertvm_p5" value="-  ErrorMessage: string" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="alertvm"><mxGeometry y="116" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="alertvm_p6" value="-  LiveRates: Dictionary of string to decimal" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="alertvm"><mxGeometry y="134" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="alertvm_s2" value="Methods" style="text;strokeColor=#888888;fillColor=#E8E8F0;align=left;verticalAlign=middle;spacingLeft=6;fontSize=9;fontStyle=1;" vertex="1" parent="alertvm"><mxGeometry y="152" width="360" height="16" as="geometry"/></mxCell>
-        <mxCell id="alertvm_m1" value="+  LoadAsync(): Task" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="alertvm"><mxGeometry y="168" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="alertvm_m2" value="+  CreateAlertCommand: ICommand" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="alertvm"><mxGeometry y="186" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="alertvm_m3" value="+  DeleteAlertCommand: ICommand" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="alertvm"><mxGeometry y="204" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="alertvm_m4" value="+  RefreshRatesCommand: ICommand" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="alertvm"><mxGeometry y="222" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="alertvm_m5" value="-  LoadRatesAsync(): Task" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="alertvm"><mxGeometry y="240" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="alertvm_m6" value="-  OnAlertTriggered(alert): void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="alertvm"><mxGeometry y="258" width="360" height="18" as="geometry"/></mxCell>
-
-        <!-- ==================== FX VIEWS ==================== -->
-
-        <!-- FXPage -->
-        <mxCell id="fxpage" value="FXPage" style="swimlane;fontStyle=1;align=center;startSize=28;fillColor=#4A1A1A;strokeColor=#2E0D0D;fontColor=#FFFFFF;fontSize=11;rounded=1;arcSize=3;" vertex="1" parent="1"><mxGeometry x="2860" y="850" width="360" height="202" as="geometry"/></mxCell>
-        <mxCell id="fxpage_s1" value="Properties" style="text;strokeColor=#888888;fillColor=#E8E8F0;align=left;verticalAlign=middle;spacingLeft=6;fontSize=9;fontStyle=1;" vertex="1" parent="fxpage"><mxGeometry y="28" width="360" height="16" as="geometry"/></mxCell>
-        <mxCell id="fxpage_p1" value="-  ViewModel: FXViewModel" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="fxpage"><mxGeometry y="44" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="fxpage_s2" value="UI Elements" style="text;strokeColor=#888888;fillColor=#E8E8F0;align=left;verticalAlign=middle;spacingLeft=6;fontSize=9;fontStyle=1;" vertex="1" parent="fxpage"><mxGeometry y="62" width="360" height="16" as="geometry"/></mxCell>
-        <mxCell id="fxpage_u1" value="Step 1: source account ComboBox" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="fxpage"><mxGeometry y="78" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="fxpage_u2" value="Step 2: target currency + target account" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="fxpage"><mxGeometry y="96" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="fxpage_u3" value="Step 3: amount + rate + commission display" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="fxpage"><mxGeometry y="114" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="fxpage_u4" value="Step 4: summary + 30s countdown + confirm" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="fxpage"><mxGeometry y="132" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="fxpage_u5" value="Step 5: success screen + transaction ref" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="fxpage"><mxGeometry y="150" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="fxpage_s3" value="Methods" style="text;strokeColor=#888888;fillColor=#E8E8F0;align=left;verticalAlign=middle;spacingLeft=6;fontSize=9;fontStyle=1;" vertex="1" parent="fxpage"><mxGeometry y="168" width="360" height="16" as="geometry"/></mxCell>
-        <mxCell id="fxpage_m1" value="+  OnNavigatedTo(e): void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="fxpage"><mxGeometry y="184" width="360" height="18" as="geometry"/></mxCell>
-
-        <!-- RateAlertsPage -->
-        <mxCell id="alertpage" value="RateAlertsPage" style="swimlane;fontStyle=1;align=center;startSize=28;fillColor=#4A1A1A;strokeColor=#2E0D0D;fontColor=#FFFFFF;fontSize=11;rounded=1;arcSize=3;" vertex="1" parent="1"><mxGeometry x="3240" y="850" width="360" height="166" as="geometry"/></mxCell>
-        <mxCell id="alertpage_s1" value="Properties" style="text;strokeColor=#888888;fillColor=#E8E8F0;align=left;verticalAlign=middle;spacingLeft=6;fontSize=9;fontStyle=1;" vertex="1" parent="alertpage"><mxGeometry y="28" width="360" height="16" as="geometry"/></mxCell>
-        <mxCell id="alertpage_p1" value="-  ViewModel: RateAlertViewModel" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="alertpage"><mxGeometry y="44" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="alertpage_s2" value="UI Elements" style="text;strokeColor=#888888;fillColor=#E8E8F0;align=left;verticalAlign=middle;spacingLeft=6;fontSize=9;fontStyle=1;" vertex="1" parent="alertpage"><mxGeometry y="62" width="360" height="16" as="geometry"/></mxCell>
-        <mxCell id="alertpage_u1" value="ListView: alerts (triggered style + Delete btn)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="alertpage"><mxGeometry y="78" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="alertpage_u2" value="Create form: base/target ComboBox + NumberBox" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="alertpage"><mxGeometry y="96" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="alertpage_u3" value="Live rates table display" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="alertpage"><mxGeometry y="114" width="360" height="18" as="geometry"/></mxCell>
-        <mxCell id="alertpage_s3" value="Methods" style="text;strokeColor=#888888;fillColor=#E8E8F0;align=left;verticalAlign=middle;spacingLeft=6;fontSize=9;fontStyle=1;" vertex="1" parent="alertpage"><mxGeometry y="132" width="360" height="16" as="geometry"/></mxCell>
-        <mxCell id="alertpage_m1" value="+  OnNavigatedTo(e): void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" vertex="1" parent="alertpage"><mxGeometry y="148" width="360" height="18" as="geometry"/></mxCell>
-
-        <!-- ==================== RELATIONSHIPS ==================== -->
-
-        <!-- ViewModelBase inheritance arrows (hollow triangle = extends) -->
-        <mxCell id="edge_vmbase_transfer" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;endFill=0;strokeColor=#888888;" edge="1" source="transfervm" target="vmbase" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
-        <mxCell id="edge_vmbase_ben" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;endFill=0;strokeColor=#888888;" edge="1" source="benvm" target="vmbase" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
-        <mxCell id="edge_vmbase_bill" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;endFill=0;strokeColor=#888888;" edge="1" source="billvm" target="vmbase" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
-        <mxCell id="edge_vmbase_recur" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;endFill=0;strokeColor=#888888;" edge="1" source="recurvm" target="vmbase" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
-        <mxCell id="edge_vmbase_fx" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;endFill=0;strokeColor=#888888;" edge="1" source="fxvm" target="vmbase" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
-        <mxCell id="edge_vmbase_alert" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;endFill=0;strokeColor=#888888;" edge="1" source="alertvm" target="vmbase" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
-
-        <!-- View uses ViewModel (dashed = dependency) -->
-        <mxCell id="edge_transferpage_vm" style="edgeStyle=orthogonalEdgeStyle;endArrow=open;endFill=0;strokeColor=#AAAAAA;dashed=1;" edge="1" source="transferpage" target="transfervm" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
-        <mxCell id="edge_benpage_vm" style="edgeStyle=orthogonalEdgeStyle;endArrow=open;endFill=0;strokeColor=#AAAAAA;dashed=1;" edge="1" source="benpage" target="benvm" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
-        <mxCell id="edge_billpage_vm" style="edgeStyle=orthogonalEdgeStyle;endArrow=open;endFill=0;strokeColor=#AAAAAA;dashed=1;" edge="1" source="billpage" target="billvm" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
-        <mxCell id="edge_recurpage_vm" style="edgeStyle=orthogonalEdgeStyle;endArrow=open;endFill=0;strokeColor=#AAAAAA;dashed=1;" edge="1" source="recurpage" target="recurvm" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
-        <mxCell id="edge_fxpage_vm" style="edgeStyle=orthogonalEdgeStyle;endArrow=open;endFill=0;strokeColor=#AAAAAA;dashed=1;" edge="1" source="fxpage" target="fxvm" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
-        <mxCell id="edge_alertpage_vm" style="edgeStyle=orthogonalEdgeStyle;endArrow=open;endFill=0;strokeColor=#AAAAAA;dashed=1;" edge="1" source="alertpage" target="alertvm" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
-
+        <mxCell id="lbl_infra" parent="1" style="text;fontStyle=1;fontSize=13;fontColor=#AAAAAA;align=left;" value="INFRASTRUCTURE" vertex="1">
+          <mxGeometry height="24" width="300" x="40" y="10" as="geometry" />
+        </mxCell>
+        <mxCell id="lbl_transfer" parent="1" style="text;fontStyle=1;fontSize=13;fontColor=#AAAAAA;align=left;" value="MODULE: MONEY TRANSFER" vertex="1">
+          <mxGeometry height="24" width="400" x="40" y="370" as="geometry" />
+        </mxCell>
+        <mxCell id="lbl_bill" parent="1" style="text;fontStyle=1;fontSize=13;fontColor=#AAAAAA;align=left;" value="MODULE: BILL PAYMENT" vertex="1">
+          <mxGeometry height="24" width="400" x="1460" y="370" as="geometry" />
+        </mxCell>
+        <mxCell id="lbl_fx" parent="1" style="text;fontStyle=1;fontSize=13;fontColor=#AAAAAA;align=left;" value="MODULE: CURRENCY EXCHANGE" vertex="1">
+          <mxGeometry height="24" width="400" x="2860" y="370" as="geometry" />
+        </mxCell>
+        <mxCell id="vmbase" parent="1" style="swimlane;fontStyle=1;align=center;startSize=28;fillColor=#2D4A22;strokeColor=#1A2E12;fontColor=#FFFFFF;fontSize=11;rounded=1;arcSize=3;" value="ViewModelBase" vertex="1">
+          <mxGeometry height="110" width="320" x="40" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="vmbase_s1" parent="vmbase" style="text;strokeColor=#888888;fillColor=#E8E8F0;align=left;verticalAlign=middle;spacingLeft=6;fontSize=9;fontStyle=1;" value="Properties" vertex="1">
+          <mxGeometry height="16" width="320" y="28" as="geometry" />
+        </mxCell>
+        <mxCell id="vmbase_p1" parent="vmbase" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="#  PropertyChanged: event" vertex="1">
+          <mxGeometry height="18" width="320" y="44" as="geometry" />
+        </mxCell>
+        <mxCell id="vmbase_s2" parent="vmbase" style="text;strokeColor=#888888;fillColor=#E8E8F0;align=left;verticalAlign=middle;spacingLeft=6;fontSize=9;fontStyle=1;" value="Methods" vertex="1">
+          <mxGeometry height="16" width="320" y="62" as="geometry" />
+        </mxCell>
+        <mxCell id="vmbase_m1" parent="vmbase" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="#  SetProperty(ref T field, T value): bool" vertex="1">
+          <mxGeometry height="18" width="320" y="78" as="geometry" />
+        </mxCell>
+        <mxCell id="vmbase_m2" parent="vmbase" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="#  OnPropertyChanged(name): void" vertex="1">
+          <mxGeometry height="14" width="320" y="96" as="geometry" />
+        </mxCell>
+        <mxCell id="relay" parent="1" style="swimlane;fontStyle=1;align=center;startSize=28;fillColor=#2D4A22;strokeColor=#1A2E12;fontColor=#FFFFFF;fontSize=11;rounded=1;arcSize=3;" value="RelayCommand" vertex="1">
+          <mxGeometry height="110" width="320" x="380" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="relay_s1" parent="relay" style="text;strokeColor=#888888;fillColor=#E8E8F0;align=left;verticalAlign=middle;spacingLeft=6;fontSize=9;fontStyle=1;" value="Properties" vertex="1">
+          <mxGeometry height="16" width="320" y="28" as="geometry" />
+        </mxCell>
+        <mxCell id="relay_p1" parent="relay" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="-  _execute: Action" vertex="1">
+          <mxGeometry height="18" width="320" y="44" as="geometry" />
+        </mxCell>
+        <mxCell id="relay_p2" parent="relay" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="-  _canExecute: Func (nullable)" vertex="1">
+          <mxGeometry height="18" width="320" y="62" as="geometry" />
+        </mxCell>
+        <mxCell id="relay_s2" parent="relay" style="text;strokeColor=#888888;fillColor=#E8E8F0;align=left;verticalAlign=middle;spacingLeft=6;fontSize=9;fontStyle=1;" value="Methods" vertex="1">
+          <mxGeometry height="16" width="320" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="relay_m1" parent="relay" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="+  Execute(param): void" vertex="1">
+          <mxGeometry height="14" width="320" y="96" as="geometry" />
+        </mxCell>
+        <mxCell id="asyncrelay" parent="1" style="swimlane;fontStyle=1;align=center;startSize=28;fillColor=#2D4A22;strokeColor=#1A2E12;fontColor=#FFFFFF;fontSize=11;rounded=1;arcSize=3;" value="AsyncRelayCommand" vertex="1">
+          <mxGeometry height="110" width="320" x="720" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="asyncrelay_s1" parent="asyncrelay" style="text;strokeColor=#888888;fillColor=#E8E8F0;align=left;verticalAlign=middle;spacingLeft=6;fontSize=9;fontStyle=1;" value="Properties" vertex="1">
+          <mxGeometry height="16" width="320" y="28" as="geometry" />
+        </mxCell>
+        <mxCell id="asyncrelay_p1" parent="asyncrelay" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="-  _execute: Func returning Task" vertex="1">
+          <mxGeometry height="18" width="320" y="44" as="geometry" />
+        </mxCell>
+        <mxCell id="asyncrelay_p2" parent="asyncrelay" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="-  _isExecuting: bool" vertex="1">
+          <mxGeometry height="18" width="320" y="62" as="geometry" />
+        </mxCell>
+        <mxCell id="asyncrelay_s2" parent="asyncrelay" style="text;strokeColor=#888888;fillColor=#E8E8F0;align=left;verticalAlign=middle;spacingLeft=6;fontSize=9;fontStyle=1;" value="Methods" vertex="1">
+          <mxGeometry height="16" width="320" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="asyncrelay_m1" parent="asyncrelay" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="+  ExecuteAsync(param): Task" vertex="1">
+          <mxGeometry height="14" width="320" y="96" as="geometry" />
+        </mxCell>
+        <mxCell id="navsvc" parent="1" style="swimlane;fontStyle=1;align=center;startSize=28;fillColor=#2D4A22;strokeColor=#1A2E12;fontColor=#FFFFFF;fontSize=11;rounded=1;arcSize=3;" value="NavigationService" vertex="1">
+          <mxGeometry height="110" width="320" x="1060" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="navsvc_s1" parent="navsvc" style="text;strokeColor=#888888;fillColor=#E8E8F0;align=left;verticalAlign=middle;spacingLeft=6;fontSize=9;fontStyle=1;" value="Properties" vertex="1">
+          <mxGeometry height="16" width="320" y="28" as="geometry" />
+        </mxCell>
+        <mxCell id="navsvc_p1" parent="navsvc" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="+  Frame: Frame (static)" vertex="1">
+          <mxGeometry height="18" width="320" y="44" as="geometry" />
+        </mxCell>
+        <mxCell id="navsvc_s2" parent="navsvc" style="text;strokeColor=#888888;fillColor=#E8E8F0;align=left;verticalAlign=middle;spacingLeft=6;fontSize=9;fontStyle=1;" value="Methods" vertex="1">
+          <mxGeometry height="16" width="320" y="62" as="geometry" />
+        </mxCell>
+        <mxCell id="navsvc_m1" parent="navsvc" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="+  NavigateTo(param?): void (static)" vertex="1">
+          <mxGeometry height="18" width="320" y="78" as="geometry" />
+        </mxCell>
+        <mxCell id="navsvc_m2" parent="navsvc" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="+  GoBack(): void (static)" vertex="1">
+          <mxGeometry height="14" width="320" y="96" as="geometry" />
+        </mxCell>
+        <mxCell id="mainwin" parent="1" style="swimlane;fontStyle=1;align=center;startSize=28;fillColor=#4A1A1A;strokeColor=#2E0D0D;fontColor=#FFFFFF;fontSize=11;rounded=1;arcSize=3;" value="MainWindow" vertex="1">
+          <mxGeometry height="92" width="320" x="1400" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="mainwin_s1" parent="mainwin" style="text;strokeColor=#888888;fillColor=#E8E8F0;align=left;verticalAlign=middle;spacingLeft=6;fontSize=9;fontStyle=1;" value="Properties" vertex="1">
+          <mxGeometry height="16" width="320" y="28" as="geometry" />
+        </mxCell>
+        <mxCell id="mainwin_p1" parent="mainwin" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="-  _navigationView: NavigationView" vertex="1">
+          <mxGeometry height="18" width="320" y="44" as="geometry" />
+        </mxCell>
+        <mxCell id="mainwin_s2" parent="mainwin" style="text;strokeColor=#888888;fillColor=#E8E8F0;align=left;verticalAlign=middle;spacingLeft=6;fontSize=9;fontStyle=1;" value="Methods" vertex="1">
+          <mxGeometry height="16" width="320" y="62" as="geometry" />
+        </mxCell>
+        <mxCell id="mainwin_m1" parent="mainwin" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="+  OnNavigationItemSelected(sender, args): void" vertex="1">
+          <mxGeometry height="14" width="320" y="78" as="geometry" />
+        </mxCell>
+        <mxCell id="transfervm" parent="1" style="swimlane;fontStyle=1;align=center;startSize=28;fillColor=#1B3A5C;strokeColor=#0D2137;fontColor=#FFFFFF;fontSize=11;rounded=1;arcSize=3;" value="TransferViewModel" vertex="1">
+          <mxGeometry height="400" width="360" x="40" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="transfervm_s1" parent="transfervm" style="text;strokeColor=#888888;fillColor=#E8E8F0;align=left;verticalAlign=middle;spacingLeft=6;fontSize=9;fontStyle=1;" value="Properties" vertex="1">
+          <mxGeometry height="16" width="360" y="28" as="geometry" />
+        </mxCell>
+        <mxCell id="transfervm_p1" parent="transfervm" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="-  CurrentStep: int" vertex="1">
+          <mxGeometry height="18" width="360" y="44" as="geometry" />
+        </mxCell>
+        <mxCell id="transfervm_p2" parent="transfervm" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="-  Accounts: ObservableCollection of Account" vertex="1">
+          <mxGeometry height="18" width="360" y="62" as="geometry" />
+        </mxCell>
+        <mxCell id="transfervm_p3" parent="transfervm" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="-  SelectedAccount: Account?" vertex="1">
+          <mxGeometry height="18" width="360" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="transfervm_p4" parent="transfervm" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="-  RecipientName: string" vertex="1">
+          <mxGeometry height="18" width="360" y="98" as="geometry" />
+        </mxCell>
+        <mxCell id="transfervm_p5" parent="transfervm" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="-  RecipientIBAN: string" vertex="1">
+          <mxGeometry height="18" width="360" y="116" as="geometry" />
+        </mxCell>
+        <mxCell id="transfervm_p6" parent="transfervm" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="-  IsIBANValid: bool" vertex="1">
+          <mxGeometry height="18" width="360" y="134" as="geometry" />
+        </mxCell>
+        <mxCell id="transfervm_p7" parent="transfervm" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="-  BankName: string" vertex="1">
+          <mxGeometry height="18" width="360" y="152" as="geometry" />
+        </mxCell>
+        <mxCell id="transfervm_p8" parent="transfervm" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="-  Amount: decimal" vertex="1">
+          <mxGeometry height="18" width="360" y="170" as="geometry" />
+        </mxCell>
+        <mxCell id="transfervm_p9" parent="transfervm" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="-  Currency: string" vertex="1">
+          <mxGeometry height="18" width="360" y="188" as="geometry" />
+        </mxCell>
+        <mxCell id="transfervm_p10" parent="transfervm" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="-  FxPreviewText: string" vertex="1">
+          <mxGeometry height="18" width="360" y="206" as="geometry" />
+        </mxCell>
+        <mxCell id="transfervm_p11" parent="transfervm" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="-  TwoFAToken: string" vertex="1">
+          <mxGeometry height="18" width="360" y="224" as="geometry" />
+        </mxCell>
+        <mxCell id="transfervm_p12" parent="transfervm" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="-  Requires2FA: bool" vertex="1">
+          <mxGeometry height="18" width="360" y="242" as="geometry" />
+        </mxCell>
+        <mxCell id="transfervm_p13" parent="transfervm" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="-  TransactionRef: string" vertex="1">
+          <mxGeometry height="18" width="360" y="260" as="geometry" />
+        </mxCell>
+        <mxCell id="transfervm_p14" parent="transfervm" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="-  ErrorMessage: string" vertex="1">
+          <mxGeometry height="18" width="360" y="278" as="geometry" />
+        </mxCell>
+        <mxCell id="transfervm_s2" parent="transfervm" style="text;strokeColor=#888888;fillColor=#E8E8F0;align=left;verticalAlign=middle;spacingLeft=6;fontSize=9;fontStyle=1;" value="Methods" vertex="1">
+          <mxGeometry height="16" width="360" y="296" as="geometry" />
+        </mxCell>
+        <mxCell id="transfervm_m1" parent="transfervm" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="+  LoadAccountsAsync(): Task" vertex="1">
+          <mxGeometry height="18" width="360" y="312" as="geometry" />
+        </mxCell>
+        <mxCell id="transfervm_m2" parent="transfervm" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="+  NextStepCommand: ICommand" vertex="1">
+          <mxGeometry height="18" width="360" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="transfervm_m3" parent="transfervm" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="+  TransferCommand: ICommand" vertex="1">
+          <mxGeometry height="18" width="360" y="348" as="geometry" />
+        </mxCell>
+        <mxCell id="transfervm_m4" parent="transfervm" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="+  CancelCommand: ICommand" vertex="1">
+          <mxGeometry height="18" width="360" y="366" as="geometry" />
+        </mxCell>
+        <mxCell id="transfervm_m5" parent="transfervm" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="+  SendAgainCommand: ICommand" vertex="1">
+          <mxGeometry height="16" width="360" y="384" as="geometry" />
+        </mxCell>
+        <mxCell id="benvm" parent="1" style="swimlane;fontStyle=1;align=center;startSize=28;fillColor=#1B3A5C;strokeColor=#0D2137;fontColor=#FFFFFF;fontSize=11;rounded=1;arcSize=3;" value="BeneficiariesViewModel" vertex="1">
+          <mxGeometry height="310" width="360" x="420" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="benvm_s1" parent="benvm" style="text;strokeColor=#888888;fillColor=#E8E8F0;align=left;verticalAlign=middle;spacingLeft=6;fontSize=9;fontStyle=1;" value="Properties" vertex="1">
+          <mxGeometry height="16" width="360" y="28" as="geometry" />
+        </mxCell>
+        <mxCell id="benvm_p1" parent="benvm" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="-  Beneficiaries: ObservableCollection of Beneficiary" vertex="1">
+          <mxGeometry height="18" width="360" y="44" as="geometry" />
+        </mxCell>
+        <mxCell id="benvm_p2" parent="benvm" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="-  SelectedBeneficiary: Beneficiary?" vertex="1">
+          <mxGeometry height="18" width="360" y="62" as="geometry" />
+        </mxCell>
+        <mxCell id="benvm_p3" parent="benvm" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="-  NewName: string" vertex="1">
+          <mxGeometry height="18" width="360" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="benvm_p4" parent="benvm" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="-  NewIBAN: string" vertex="1">
+          <mxGeometry height="18" width="360" y="98" as="geometry" />
+        </mxCell>
+        <mxCell id="benvm_p5" parent="benvm" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="-  NewBankName: string" vertex="1">
+          <mxGeometry height="18" width="360" y="116" as="geometry" />
+        </mxCell>
+        <mxCell id="benvm_p6" parent="benvm" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="-  ErrorMessage: string" vertex="1">
+          <mxGeometry height="18" width="360" y="134" as="geometry" />
+        </mxCell>
+        <mxCell id="benvm_p7" parent="benvm" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="-  IsAddFormVisible: bool" vertex="1">
+          <mxGeometry height="18" width="360" y="152" as="geometry" />
+        </mxCell>
+        <mxCell id="benvm_s2" parent="benvm" style="text;strokeColor=#888888;fillColor=#E8E8F0;align=left;verticalAlign=middle;spacingLeft=6;fontSize=9;fontStyle=1;" value="Methods" vertex="1">
+          <mxGeometry height="16" width="360" y="170" as="geometry" />
+        </mxCell>
+        <mxCell id="benvm_m1" parent="benvm" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="+  LoadAsync(): Task" vertex="1">
+          <mxGeometry height="18" width="360" y="186" as="geometry" />
+        </mxCell>
+        <mxCell id="benvm_m2" parent="benvm" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="+  AddCommand: ICommand" vertex="1">
+          <mxGeometry height="18" width="360" y="204" as="geometry" />
+        </mxCell>
+        <mxCell id="benvm_m3" parent="benvm" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="+  DeleteCommand: ICommand" vertex="1">
+          <mxGeometry height="18" width="360" y="222" as="geometry" />
+        </mxCell>
+        <mxCell id="benvm_m4" parent="benvm" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="+  SelectCommand: ICommand" vertex="1">
+          <mxGeometry height="18" width="360" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="benvm_m5" parent="benvm" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="+  ShowAddFormCommand: ICommand" vertex="1">
+          <mxGeometry height="18" width="360" y="258" as="geometry" />
+        </mxCell>
+        <mxCell id="benvm_m6" parent="benvm" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="+  UseForTransferCommand: ICommand" vertex="1">
+          <mxGeometry height="16" width="360" y="276" as="geometry" />
+        </mxCell>
+        <mxCell id="transferpage" parent="1" style="swimlane;fontStyle=1;align=center;startSize=28;fillColor=#4A1A1A;strokeColor=#2E0D0D;fontColor=#FFFFFF;fontSize=11;rounded=1;arcSize=3;" value="TransferPage" vertex="1">
+          <mxGeometry height="220" width="360" x="40" y="830" as="geometry" />
+        </mxCell>
+        <mxCell id="transferpage_s1" parent="transferpage" style="text;strokeColor=#888888;fillColor=#E8E8F0;align=left;verticalAlign=middle;spacingLeft=6;fontSize=9;fontStyle=1;" value="Properties" vertex="1">
+          <mxGeometry height="16" width="360" y="28" as="geometry" />
+        </mxCell>
+        <mxCell id="transferpage_p1" parent="transferpage" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="-  ViewModel: TransferViewModel" vertex="1">
+          <mxGeometry height="18" width="360" y="44" as="geometry" />
+        </mxCell>
+        <mxCell id="transferpage_s2" parent="transferpage" style="text;strokeColor=#888888;fillColor=#E8E8F0;align=left;verticalAlign=middle;spacingLeft=6;fontSize=9;fontStyle=1;" value="UI Elements" vertex="1">
+          <mxGeometry height="16" width="360" y="62" as="geometry" />
+        </mxCell>
+        <mxCell id="transferpage_u1" parent="transferpage" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="Step 1: account ComboBox" vertex="1">
+          <mxGeometry height="18" width="360" y="78" as="geometry" />
+        </mxCell>
+        <mxCell id="transferpage_u2" parent="transferpage" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="Step 2: recipient name + IBAN TextBox" vertex="1">
+          <mxGeometry height="18" width="360" y="96" as="geometry" />
+        </mxCell>
+        <mxCell id="transferpage_u3" parent="transferpage" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="Step 3: amount + currency + FX preview" vertex="1">
+          <mxGeometry height="18" width="360" y="114" as="geometry" />
+        </mxCell>
+        <mxCell id="transferpage_u4" parent="transferpage" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="Step 4: review summary + 2FA TextBox" vertex="1">
+          <mxGeometry height="18" width="360" y="132" as="geometry" />
+        </mxCell>
+        <mxCell id="transferpage_u5" parent="transferpage" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="Step 5: loading indicator" vertex="1">
+          <mxGeometry height="18" width="360" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="transferpage_u6" parent="transferpage" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="Step 6: result screen with ref or error" vertex="1">
+          <mxGeometry height="18" width="360" y="168" as="geometry" />
+        </mxCell>
+        <mxCell id="transferpage_s3" parent="transferpage" style="text;strokeColor=#888888;fillColor=#E8E8F0;align=left;verticalAlign=middle;spacingLeft=6;fontSize=9;fontStyle=1;" value="Methods" vertex="1">
+          <mxGeometry height="16" width="360" y="186" as="geometry" />
+        </mxCell>
+        <mxCell id="transferpage_m1" parent="transferpage" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="+  OnNavigatedTo(e): void" vertex="1">
+          <mxGeometry height="18" width="360" y="202" as="geometry" />
+        </mxCell>
+        <mxCell id="benpage" parent="1" style="swimlane;fontStyle=1;align=center;startSize=28;fillColor=#4A1A1A;strokeColor=#2E0D0D;fontColor=#FFFFFF;fontSize=11;rounded=1;arcSize=3;" value="BeneficiariesPage" vertex="1">
+          <mxGeometry height="166" width="360" x="420" y="830" as="geometry" />
+        </mxCell>
+        <mxCell id="benpage_s1" parent="benpage" style="text;strokeColor=#888888;fillColor=#E8E8F0;align=left;verticalAlign=middle;spacingLeft=6;fontSize=9;fontStyle=1;" value="Properties" vertex="1">
+          <mxGeometry height="16" width="360" y="28" as="geometry" />
+        </mxCell>
+        <mxCell id="benpage_p1" parent="benpage" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="-  ViewModel: BeneficiariesViewModel" vertex="1">
+          <mxGeometry height="18" width="360" y="44" as="geometry" />
+        </mxCell>
+        <mxCell id="benpage_s2" parent="benpage" style="text;strokeColor=#888888;fillColor=#E8E8F0;align=left;verticalAlign=middle;spacingLeft=6;fontSize=9;fontStyle=1;" value="UI Elements" vertex="1">
+          <mxGeometry height="16" width="360" y="62" as="geometry" />
+        </mxCell>
+        <mxCell id="benpage_u1" parent="benpage" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="ListView: beneficiary list (Use / Delete)" vertex="1">
+          <mxGeometry height="18" width="360" y="78" as="geometry" />
+        </mxCell>
+        <mxCell id="benpage_u2" parent="benpage" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="Add form: Name, IBAN, BankName TextBoxes" vertex="1">
+          <mxGeometry height="18" width="360" y="96" as="geometry" />
+        </mxCell>
+        <mxCell id="benpage_u3" parent="benpage" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="ErrorMessage TextBlock" vertex="1">
+          <mxGeometry height="18" width="360" y="114" as="geometry" />
+        </mxCell>
+        <mxCell id="benpage_s3" parent="benpage" style="text;strokeColor=#888888;fillColor=#E8E8F0;align=left;verticalAlign=middle;spacingLeft=6;fontSize=9;fontStyle=1;" value="Methods" vertex="1">
+          <mxGeometry height="16" width="360" y="132" as="geometry" />
+        </mxCell>
+        <mxCell id="benpage_m1" parent="benpage" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="+  OnNavigatedTo(e): void" vertex="1">
+          <mxGeometry height="18" width="360" y="148" as="geometry" />
+        </mxCell>
+        <mxCell id="billvm" parent="1" style="swimlane;fontStyle=1;align=center;startSize=28;fillColor=#1B3A5C;strokeColor=#0D2137;fontColor=#FFFFFF;fontSize=11;rounded=1;arcSize=3;" value="BillPayViewModel" vertex="1">
+          <mxGeometry height="400" width="360" x="1460" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="billvm_s1" parent="billvm" style="text;strokeColor=#888888;fillColor=#E8E8F0;align=left;verticalAlign=middle;spacingLeft=6;fontSize=9;fontStyle=1;" value="Properties" vertex="1">
+          <mxGeometry height="16" width="360" y="28" as="geometry" />
+        </mxCell>
+        <mxCell id="billvm_p1" parent="billvm" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="-  CurrentStep: int" vertex="1">
+          <mxGeometry height="18" width="360" y="44" as="geometry" />
+        </mxCell>
+        <mxCell id="billvm_p2" parent="billvm" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="-  Billers: ObservableCollection of Biller" vertex="1">
+          <mxGeometry height="18" width="360" y="62" as="geometry" />
+        </mxCell>
+        <mxCell id="billvm_p3" parent="billvm" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="-  SavedBillers: ObservableCollection of SavedBiller" vertex="1">
+          <mxGeometry height="18" width="360" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="billvm_p4" parent="billvm" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="-  SelectedBiller: Biller?" vertex="1">
+          <mxGeometry height="18" width="360" y="98" as="geometry" />
+        </mxCell>
+        <mxCell id="billvm_p5" parent="billvm" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="-  SearchQuery: string" vertex="1">
+          <mxGeometry height="18" width="360" y="116" as="geometry" />
+        </mxCell>
+        <mxCell id="billvm_p6" parent="billvm" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="-  SelectedCategory: string?" vertex="1">
+          <mxGeometry height="18" width="360" y="134" as="geometry" />
+        </mxCell>
+        <mxCell id="billvm_p7" parent="billvm" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="-  BillerReference: string" vertex="1">
+          <mxGeometry height="18" width="360" y="152" as="geometry" />
+        </mxCell>
+        <mxCell id="billvm_p8" parent="billvm" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="-  Amount: decimal" vertex="1">
+          <mxGeometry height="18" width="360" y="170" as="geometry" />
+        </mxCell>
+        <mxCell id="billvm_p9" parent="billvm" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="-  IsPayInFull: bool" vertex="1">
+          <mxGeometry height="18" width="360" y="188" as="geometry" />
+        </mxCell>
+        <mxCell id="billvm_p10" parent="billvm" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="-  SelectedAccount: Account?" vertex="1">
+          <mxGeometry height="18" width="360" y="206" as="geometry" />
+        </mxCell>
+        <mxCell id="billvm_p11" parent="billvm" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="-  Fee: decimal" vertex="1">
+          <mxGeometry height="18" width="360" y="224" as="geometry" />
+        </mxCell>
+        <mxCell id="billvm_p12" parent="billvm" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="-  ReceiptNumber: string" vertex="1">
+          <mxGeometry height="18" width="360" y="242" as="geometry" />
+        </mxCell>
+        <mxCell id="billvm_p13" parent="billvm" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="-  ErrorMessage: string" vertex="1">
+          <mxGeometry height="18" width="360" y="260" as="geometry" />
+        </mxCell>
+        <mxCell id="billvm_s2" parent="billvm" style="text;strokeColor=#888888;fillColor=#E8E8F0;align=left;verticalAlign=middle;spacingLeft=6;fontSize=9;fontStyle=1;" value="Methods" vertex="1">
+          <mxGeometry height="16" width="360" y="278" as="geometry" />
+        </mxCell>
+        <mxCell id="billvm_m1" parent="billvm" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="+  LoadAsync(): Task" vertex="1">
+          <mxGeometry height="18" width="360" y="294" as="geometry" />
+        </mxCell>
+        <mxCell id="billvm_m2" parent="billvm" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="+  SearchCommand: ICommand" vertex="1">
+          <mxGeometry height="18" width="360" y="312" as="geometry" />
+        </mxCell>
+        <mxCell id="billvm_m3" parent="billvm" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="+  SelectBillerCommand: ICommand" vertex="1">
+          <mxGeometry height="18" width="360" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="billvm_m4" parent="billvm" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="+  PayBillCommand: ICommand" vertex="1">
+          <mxGeometry height="18" width="360" y="348" as="geometry" />
+        </mxCell>
+        <mxCell id="billvm_m5" parent="billvm" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="+  NextStepCommand: ICommand" vertex="1">
+          <mxGeometry height="18" width="360" y="366" as="geometry" />
+        </mxCell>
+        <mxCell id="billvm_m6" parent="billvm" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="+  CancelCommand: ICommand" vertex="1">
+          <mxGeometry height="16" width="360" y="384" as="geometry" />
+        </mxCell>
+        <mxCell id="recurvm" parent="1" style="swimlane;fontStyle=1;align=center;startSize=28;fillColor=#1B3A5C;strokeColor=#0D2137;fontColor=#FFFFFF;fontSize=11;rounded=1;arcSize=3;" value="RecurringPaymentViewModel" vertex="1">
+          <mxGeometry height="330" width="360" x="1840" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="recurvm_s1" parent="recurvm" style="text;strokeColor=#888888;fillColor=#E8E8F0;align=left;verticalAlign=middle;spacingLeft=6;fontSize=9;fontStyle=1;" value="Properties" vertex="1">
+          <mxGeometry height="16" width="360" y="28" as="geometry" />
+        </mxCell>
+        <mxCell id="recurvm_p1" parent="recurvm" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="-  Payments: ObservableCollection of RecurringPayment" vertex="1">
+          <mxGeometry height="18" width="360" y="44" as="geometry" />
+        </mxCell>
+        <mxCell id="recurvm_p2" parent="recurvm" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="-  SelectedPayment: RecurringPayment?" vertex="1">
+          <mxGeometry height="18" width="360" y="62" as="geometry" />
+        </mxCell>
+        <mxCell id="recurvm_p3" parent="recurvm" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="-  SelectedBillerId: int" vertex="1">
+          <mxGeometry height="18" width="360" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="recurvm_p4" parent="recurvm" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="-  Amount: decimal" vertex="1">
+          <mxGeometry height="18" width="360" y="98" as="geometry" />
+        </mxCell>
+        <mxCell id="recurvm_p5" parent="recurvm" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="-  Frequency: string" vertex="1">
+          <mxGeometry height="18" width="360" y="116" as="geometry" />
+        </mxCell>
+        <mxCell id="recurvm_p6" parent="recurvm" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="-  StartDate: DateTime" vertex="1">
+          <mxGeometry height="18" width="360" y="134" as="geometry" />
+        </mxCell>
+        <mxCell id="recurvm_p7" parent="recurvm" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="-  EndDate: DateTime?" vertex="1">
+          <mxGeometry height="18" width="360" y="152" as="geometry" />
+        </mxCell>
+        <mxCell id="recurvm_p8" parent="recurvm" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="-  IsPayInFull: bool" vertex="1">
+          <mxGeometry height="18" width="360" y="170" as="geometry" />
+        </mxCell>
+        <mxCell id="recurvm_p9" parent="recurvm" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="-  ErrorMessage: string" vertex="1">
+          <mxGeometry height="18" width="360" y="188" as="geometry" />
+        </mxCell>
+        <mxCell id="recurvm_s2" parent="recurvm" style="text;strokeColor=#888888;fillColor=#E8E8F0;align=left;verticalAlign=middle;spacingLeft=6;fontSize=9;fontStyle=1;" value="Methods" vertex="1">
+          <mxGeometry height="16" width="360" y="206" as="geometry" />
+        </mxCell>
+        <mxCell id="recurvm_m1" parent="recurvm" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="+  LoadAsync(): Task" vertex="1">
+          <mxGeometry height="18" width="360" y="222" as="geometry" />
+        </mxCell>
+        <mxCell id="recurvm_m2" parent="recurvm" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="+  CreateCommand: ICommand" vertex="1">
+          <mxGeometry height="18" width="360" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="recurvm_m3" parent="recurvm" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="+  PauseCommand: ICommand" vertex="1">
+          <mxGeometry height="18" width="360" y="258" as="geometry" />
+        </mxCell>
+        <mxCell id="recurvm_m4" parent="recurvm" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="+  ResumeCommand: ICommand" vertex="1">
+          <mxGeometry height="18" width="360" y="276" as="geometry" />
+        </mxCell>
+        <mxCell id="recurvm_m5" parent="recurvm" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="+  CancelCommand: ICommand" vertex="1">
+          <mxGeometry height="16" width="360" y="294" as="geometry" />
+        </mxCell>
+        <mxCell id="billpage" parent="1" style="swimlane;fontStyle=1;align=center;startSize=28;fillColor=#4A1A1A;strokeColor=#2E0D0D;fontColor=#FFFFFF;fontSize=11;rounded=1;arcSize=3;" value="BillPayPage" vertex="1">
+          <mxGeometry height="202" width="360" x="1460" y="830" as="geometry" />
+        </mxCell>
+        <mxCell id="billpage_s1" parent="billpage" style="text;strokeColor=#888888;fillColor=#E8E8F0;align=left;verticalAlign=middle;spacingLeft=6;fontSize=9;fontStyle=1;" value="Properties" vertex="1">
+          <mxGeometry height="16" width="360" y="28" as="geometry" />
+        </mxCell>
+        <mxCell id="billpage_p1" parent="billpage" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="-  ViewModel: BillPayViewModel" vertex="1">
+          <mxGeometry height="18" width="360" y="44" as="geometry" />
+        </mxCell>
+        <mxCell id="billpage_s2" parent="billpage" style="text;strokeColor=#888888;fillColor=#E8E8F0;align=left;verticalAlign=middle;spacingLeft=6;fontSize=9;fontStyle=1;" value="UI Elements" vertex="1">
+          <mxGeometry height="16" width="360" y="62" as="geometry" />
+        </mxCell>
+        <mxCell id="billpage_u1" parent="billpage" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="Step 1: AutoSuggestBox search + category ComboBox" vertex="1">
+          <mxGeometry height="18" width="360" y="78" as="geometry" />
+        </mxCell>
+        <mxCell id="billpage_u2" parent="billpage" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="Step 1: biller ListView" vertex="1">
+          <mxGeometry height="18" width="360" y="96" as="geometry" />
+        </mxCell>
+        <mxCell id="billpage_u3" parent="billpage" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="Step 2: reference TextBox + amount + IsPayInFull" vertex="1">
+          <mxGeometry height="18" width="360" y="114" as="geometry" />
+        </mxCell>
+        <mxCell id="billpage_u4" parent="billpage" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="Step 3: review summary + fee display" vertex="1">
+          <mxGeometry height="18" width="360" y="132" as="geometry" />
+        </mxCell>
+        <mxCell id="billpage_u5" parent="billpage" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="Step 4: receipt number display" vertex="1">
+          <mxGeometry height="18" width="360" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="billpage_s3" parent="billpage" style="text;strokeColor=#888888;fillColor=#E8E8F0;align=left;verticalAlign=middle;spacingLeft=6;fontSize=9;fontStyle=1;" value="Methods" vertex="1">
+          <mxGeometry height="16" width="360" y="168" as="geometry" />
+        </mxCell>
+        <mxCell id="billpage_m1" parent="billpage" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="+  OnNavigatedTo(e): void" vertex="1">
+          <mxGeometry height="18" width="360" y="184" as="geometry" />
+        </mxCell>
+        <mxCell id="recurpage" parent="1" style="swimlane;fontStyle=1;align=center;startSize=28;fillColor=#4A1A1A;strokeColor=#2E0D0D;fontColor=#FFFFFF;fontSize=11;rounded=1;arcSize=3;" value="RecurringPaymentsPage" vertex="1">
+          <mxGeometry height="166" width="360" x="1840" y="830" as="geometry" />
+        </mxCell>
+        <mxCell id="recurpage_s1" parent="recurpage" style="text;strokeColor=#888888;fillColor=#E8E8F0;align=left;verticalAlign=middle;spacingLeft=6;fontSize=9;fontStyle=1;" value="Properties" vertex="1">
+          <mxGeometry height="16" width="360" y="28" as="geometry" />
+        </mxCell>
+        <mxCell id="recurpage_p1" parent="recurpage" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="-  ViewModel: RecurringPaymentViewModel" vertex="1">
+          <mxGeometry height="18" width="360" y="44" as="geometry" />
+        </mxCell>
+        <mxCell id="recurpage_s2" parent="recurpage" style="text;strokeColor=#888888;fillColor=#E8E8F0;align=left;verticalAlign=middle;spacingLeft=6;fontSize=9;fontStyle=1;" value="UI Elements" vertex="1">
+          <mxGeometry height="16" width="360" y="62" as="geometry" />
+        </mxCell>
+        <mxCell id="recurpage_u1" parent="recurpage" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="ListView: payments (Pause / Resume / Cancel)" vertex="1">
+          <mxGeometry height="18" width="360" y="78" as="geometry" />
+        </mxCell>
+        <mxCell id="recurpage_u2" parent="recurpage" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="Setup form: biller, amount, frequency, dates" vertex="1">
+          <mxGeometry height="18" width="360" y="96" as="geometry" />
+        </mxCell>
+        <mxCell id="recurpage_u3" parent="recurpage" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="ErrorMessage TextBlock" vertex="1">
+          <mxGeometry height="18" width="360" y="114" as="geometry" />
+        </mxCell>
+        <mxCell id="recurpage_s3" parent="recurpage" style="text;strokeColor=#888888;fillColor=#E8E8F0;align=left;verticalAlign=middle;spacingLeft=6;fontSize=9;fontStyle=1;" value="Methods" vertex="1">
+          <mxGeometry height="16" width="360" y="132" as="geometry" />
+        </mxCell>
+        <mxCell id="recurpage_m1" parent="recurpage" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="+  OnNavigatedTo(e): void" vertex="1">
+          <mxGeometry height="18" width="360" y="148" as="geometry" />
+        </mxCell>
+        <mxCell id="fxvm" parent="1" style="swimlane;fontStyle=1;align=center;startSize=28;fillColor=#1B3A5C;strokeColor=#0D2137;fontColor=#FFFFFF;fontSize=11;rounded=1;arcSize=3;" value="FXViewModel" vertex="1">
+          <mxGeometry height="420" width="360" x="2860" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="fxvm_s1" parent="fxvm" style="text;strokeColor=#888888;fillColor=#E8E8F0;align=left;verticalAlign=middle;spacingLeft=6;fontSize=9;fontStyle=1;" value="Properties" vertex="1">
+          <mxGeometry height="16" width="360" y="28" as="geometry" />
+        </mxCell>
+        <mxCell id="fxvm_p1" parent="fxvm" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="-  CurrentStep: int" vertex="1">
+          <mxGeometry height="18" width="360" y="44" as="geometry" />
+        </mxCell>
+        <mxCell id="fxvm_p2" parent="fxvm" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="-  Accounts: ObservableCollection of Account" vertex="1">
+          <mxGeometry height="18" width="360" y="62" as="geometry" />
+        </mxCell>
+        <mxCell id="fxvm_p3" parent="fxvm" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="-  SourceAccount: Account?" vertex="1">
+          <mxGeometry height="18" width="360" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="fxvm_p4" parent="fxvm" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="-  TargetAccount: Account?" vertex="1">
+          <mxGeometry height="18" width="360" y="98" as="geometry" />
+        </mxCell>
+        <mxCell id="fxvm_p5" parent="fxvm" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="-  SourceCurrency: string" vertex="1">
+          <mxGeometry height="18" width="360" y="116" as="geometry" />
+        </mxCell>
+        <mxCell id="fxvm_p6" parent="fxvm" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="-  TargetCurrency: string" vertex="1">
+          <mxGeometry height="18" width="360" y="134" as="geometry" />
+        </mxCell>
+        <mxCell id="fxvm_p7" parent="fxvm" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="-  Amount: decimal" vertex="1">
+          <mxGeometry height="18" width="360" y="152" as="geometry" />
+        </mxCell>
+        <mxCell id="fxvm_p8" parent="fxvm" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="-  LiveRate: decimal" vertex="1">
+          <mxGeometry height="18" width="360" y="170" as="geometry" />
+        </mxCell>
+        <mxCell id="fxvm_p9" parent="fxvm" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="-  Commission: decimal" vertex="1">
+          <mxGeometry height="18" width="360" y="188" as="geometry" />
+        </mxCell>
+        <mxCell id="fxvm_p10" parent="fxvm" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="-  TargetAmount: decimal" vertex="1">
+          <mxGeometry height="18" width="360" y="206" as="geometry" />
+        </mxCell>
+        <mxCell id="fxvm_p11" parent="fxvm" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="-  SecondsRemaining: int" vertex="1">
+          <mxGeometry height="18" width="360" y="224" as="geometry" />
+        </mxCell>
+        <mxCell id="fxvm_p12" parent="fxvm" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="-  IsRateExpired: bool" vertex="1">
+          <mxGeometry height="18" width="360" y="242" as="geometry" />
+        </mxCell>
+        <mxCell id="fxvm_p13" parent="fxvm" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="-  TransactionRef: string" vertex="1">
+          <mxGeometry height="18" width="360" y="260" as="geometry" />
+        </mxCell>
+        <mxCell id="fxvm_p14" parent="fxvm" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="-  ErrorMessage: string" vertex="1">
+          <mxGeometry height="18" width="360" y="278" as="geometry" />
+        </mxCell>
+        <mxCell id="fxvm_s2" parent="fxvm" style="text;strokeColor=#888888;fillColor=#E8E8F0;align=left;verticalAlign=middle;spacingLeft=6;fontSize=9;fontStyle=1;" value="Methods" vertex="1">
+          <mxGeometry height="16" width="360" y="296" as="geometry" />
+        </mxCell>
+        <mxCell id="fxvm_m1" parent="fxvm" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="+  LoadAccountsAsync(): Task" vertex="1">
+          <mxGeometry height="18" width="360" y="312" as="geometry" />
+        </mxCell>
+        <mxCell id="fxvm_m2" parent="fxvm" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="+  LoadRatesCommand: ICommand" vertex="1">
+          <mxGeometry height="18" width="360" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="fxvm_m3" parent="fxvm" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="+  LockRateCommand: ICommand" vertex="1">
+          <mxGeometry height="18" width="360" y="348" as="geometry" />
+        </mxCell>
+        <mxCell id="fxvm_m4" parent="fxvm" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="+  ExecuteExchangeCommand: ICommand" vertex="1">
+          <mxGeometry height="18" width="360" y="366" as="geometry" />
+        </mxCell>
+        <mxCell id="fxvm_m5" parent="fxvm" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="+  CancelCommand: ICommand" vertex="1">
+          <mxGeometry height="18" width="360" y="384" as="geometry" />
+        </mxCell>
+        <mxCell id="fxvm_m6" parent="fxvm" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="-  StartCountdownTimer(): void" vertex="1">
+          <mxGeometry height="18" width="360" y="402" as="geometry" />
+        </mxCell>
+        <mxCell id="alertvm" parent="1" style="swimlane;fontStyle=1;align=center;startSize=28;fillColor=#1B3A5C;strokeColor=#0D2137;fontColor=#FFFFFF;fontSize=11;rounded=1;arcSize=3;" value="RateAlertViewModel" vertex="1">
+          <mxGeometry height="360" width="360" x="3240" y="420" as="geometry" />
+        </mxCell>
+        <mxCell id="alertvm_s1" parent="alertvm" style="text;strokeColor=#888888;fillColor=#E8E8F0;align=left;verticalAlign=middle;spacingLeft=6;fontSize=9;fontStyle=1;" value="Properties" vertex="1">
+          <mxGeometry height="16" width="360" y="28" as="geometry" />
+        </mxCell>
+        <mxCell id="alertvm_p1" parent="alertvm" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="-  Alerts: ObservableCollection of RateAlert" vertex="1">
+          <mxGeometry height="18" width="360" y="44" as="geometry" />
+        </mxCell>
+        <mxCell id="alertvm_p2" parent="alertvm" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="-  BaseCurrency: string" vertex="1">
+          <mxGeometry height="18" width="360" y="62" as="geometry" />
+        </mxCell>
+        <mxCell id="alertvm_p3" parent="alertvm" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="-  TargetCurrency: string" vertex="1">
+          <mxGeometry height="18" width="360" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="alertvm_p4" parent="alertvm" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="-  TargetRateText: string" vertex="1">
+          <mxGeometry height="18" width="360" y="98" as="geometry" />
+        </mxCell>
+        <mxCell id="alertvm_p5" parent="alertvm" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="-  ErrorMessage: string" vertex="1">
+          <mxGeometry height="18" width="360" y="116" as="geometry" />
+        </mxCell>
+        <mxCell id="alertvm_p6" parent="alertvm" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="-  LiveRates: Dictionary of string to decimal" vertex="1">
+          <mxGeometry height="18" width="360" y="134" as="geometry" />
+        </mxCell>
+        <mxCell id="alertvm_s2" parent="alertvm" style="text;strokeColor=#888888;fillColor=#E8E8F0;align=left;verticalAlign=middle;spacingLeft=6;fontSize=9;fontStyle=1;" value="Methods" vertex="1">
+          <mxGeometry height="16" width="360" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="alertvm_m1" parent="alertvm" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="+  LoadAsync(): Task" vertex="1">
+          <mxGeometry height="18" width="360" y="252" as="geometry" />
+        </mxCell>
+        <mxCell id="alertvm_m2" parent="alertvm" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="+  CreateAlertCommand: ICommand" vertex="1">
+          <mxGeometry height="18" width="360" y="270" as="geometry" />
+        </mxCell>
+        <mxCell id="alertvm_m3" parent="alertvm" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="+  DeleteAlertCommand: ICommand" vertex="1">
+          <mxGeometry height="18" width="360" y="288" as="geometry" />
+        </mxCell>
+        <mxCell id="alertvm_m4" parent="alertvm" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="+  RefreshRatesCommand: ICommand" vertex="1">
+          <mxGeometry height="18" width="360" y="306" as="geometry" />
+        </mxCell>
+        <mxCell id="alertvm_m5" parent="alertvm" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="-  LoadRatesAsync(): Task" vertex="1">
+          <mxGeometry height="18" width="360" y="324" as="geometry" />
+        </mxCell>
+        <mxCell id="alertvm_m6" parent="alertvm" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="-  OnAlertTriggered(alert): void" vertex="1">
+          <mxGeometry height="18" width="360" y="342" as="geometry" />
+        </mxCell>
+        <mxCell id="u8tlNO5UztLGyhbJwjdu-1" parent="alertvm" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="- ExchangeService: ExchangeService" vertex="1">
+          <mxGeometry height="18" width="360" y="152" as="geometry" />
+        </mxCell>
+        <mxCell id="u8tlNO5UztLGyhbJwjdu-2" parent="alertvm" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="- userId: int" vertex="1">
+          <mxGeometry height="18" width="360" y="170" as="geometry" />
+        </mxCell>
+        <mxCell id="u8tlNO5UztLGyhbJwjdu-3" parent="alertvm" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="- IsBuyAlert: bool" vertex="1">
+          <mxGeometry height="18" width="360" y="188" as="geometry" />
+        </mxCell>
+        <mxCell id="u8tlNO5UztLGyhbJwjdu-4" parent="alertvm" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="- IsTriggered: bool" vertex="1">
+          <mxGeometry height="18" width="360" y="206" as="geometry" />
+        </mxCell>
+        <mxCell id="fxpage" parent="1" style="swimlane;fontStyle=1;align=center;startSize=28;fillColor=#4A1A1A;strokeColor=#2E0D0D;fontColor=#FFFFFF;fontSize=11;rounded=1;arcSize=3;" value="FXPage" vertex="1">
+          <mxGeometry height="202" width="360" x="2860" y="850" as="geometry" />
+        </mxCell>
+        <mxCell id="fxpage_s1" parent="fxpage" style="text;strokeColor=#888888;fillColor=#E8E8F0;align=left;verticalAlign=middle;spacingLeft=6;fontSize=9;fontStyle=1;" value="Properties" vertex="1">
+          <mxGeometry height="16" width="360" y="28" as="geometry" />
+        </mxCell>
+        <mxCell id="fxpage_p1" parent="fxpage" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="-  ViewModel: FXViewModel" vertex="1">
+          <mxGeometry height="18" width="360" y="44" as="geometry" />
+        </mxCell>
+        <mxCell id="fxpage_s2" parent="fxpage" style="text;strokeColor=#888888;fillColor=#E8E8F0;align=left;verticalAlign=middle;spacingLeft=6;fontSize=9;fontStyle=1;" value="UI Elements" vertex="1">
+          <mxGeometry height="16" width="360" y="62" as="geometry" />
+        </mxCell>
+        <mxCell id="fxpage_u1" parent="fxpage" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="Step 1: source account ComboBox" vertex="1">
+          <mxGeometry height="18" width="360" y="78" as="geometry" />
+        </mxCell>
+        <mxCell id="fxpage_u2" parent="fxpage" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="Step 2: target currency + target account" vertex="1">
+          <mxGeometry height="18" width="360" y="96" as="geometry" />
+        </mxCell>
+        <mxCell id="fxpage_u3" parent="fxpage" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="Step 3: amount + rate + commission display" vertex="1">
+          <mxGeometry height="18" width="360" y="114" as="geometry" />
+        </mxCell>
+        <mxCell id="fxpage_u4" parent="fxpage" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="Step 4: summary + 30s countdown + confirm" vertex="1">
+          <mxGeometry height="18" width="360" y="132" as="geometry" />
+        </mxCell>
+        <mxCell id="fxpage_u5" parent="fxpage" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="Step 5: success screen + transaction ref" vertex="1">
+          <mxGeometry height="18" width="360" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="fxpage_s3" parent="fxpage" style="text;strokeColor=#888888;fillColor=#E8E8F0;align=left;verticalAlign=middle;spacingLeft=6;fontSize=9;fontStyle=1;" value="Methods" vertex="1">
+          <mxGeometry height="16" width="360" y="168" as="geometry" />
+        </mxCell>
+        <mxCell id="fxpage_m1" parent="fxpage" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="+  OnNavigatedTo(e): void" vertex="1">
+          <mxGeometry height="18" width="360" y="184" as="geometry" />
+        </mxCell>
+        <mxCell id="alertpage" parent="1" style="swimlane;fontStyle=1;align=center;startSize=28;fillColor=#4A1A1A;strokeColor=#2E0D0D;fontColor=#FFFFFF;fontSize=11;rounded=1;arcSize=3;" value="RateAlertsPage" vertex="1">
+          <mxGeometry height="166" width="360" x="3240" y="850" as="geometry" />
+        </mxCell>
+        <mxCell id="alertpage_s1" parent="alertpage" style="text;strokeColor=#888888;fillColor=#E8E8F0;align=left;verticalAlign=middle;spacingLeft=6;fontSize=9;fontStyle=1;" value="Properties" vertex="1">
+          <mxGeometry height="16" width="360" y="28" as="geometry" />
+        </mxCell>
+        <mxCell id="alertpage_p1" parent="alertpage" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="-  ViewModel: RateAlertViewModel" vertex="1">
+          <mxGeometry height="18" width="360" y="44" as="geometry" />
+        </mxCell>
+        <mxCell id="alertpage_s2" parent="alertpage" style="text;strokeColor=#888888;fillColor=#E8E8F0;align=left;verticalAlign=middle;spacingLeft=6;fontSize=9;fontStyle=1;" value="UI Elements" vertex="1">
+          <mxGeometry height="16" width="360" y="62" as="geometry" />
+        </mxCell>
+        <mxCell id="alertpage_u1" parent="alertpage" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="ListView: alerts (triggered style + Delete btn)" vertex="1">
+          <mxGeometry height="18" width="360" y="78" as="geometry" />
+        </mxCell>
+        <mxCell id="alertpage_u2" parent="alertpage" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="Create form: base/target ComboBox + NumberBox" vertex="1">
+          <mxGeometry height="18" width="360" y="96" as="geometry" />
+        </mxCell>
+        <mxCell id="alertpage_u3" parent="alertpage" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="Live rates table display" vertex="1">
+          <mxGeometry height="18" width="360" y="114" as="geometry" />
+        </mxCell>
+        <mxCell id="alertpage_s3" parent="alertpage" style="text;strokeColor=#888888;fillColor=#E8E8F0;align=left;verticalAlign=middle;spacingLeft=6;fontSize=9;fontStyle=1;" value="Methods" vertex="1">
+          <mxGeometry height="16" width="360" y="132" as="geometry" />
+        </mxCell>
+        <mxCell id="alertpage_m1" parent="alertpage" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontFamily=Courier New;" value="+  OnNavigatedTo(e): void" vertex="1">
+          <mxGeometry height="18" width="360" y="148" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_vmbase_transfer" edge="1" parent="1" source="transfervm" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;endFill=0;strokeColor=#888888;" target="vmbase">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_vmbase_ben" edge="1" parent="1" source="benvm" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;endFill=0;strokeColor=#888888;" target="vmbase">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_vmbase_bill" edge="1" parent="1" source="billvm" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;endFill=0;strokeColor=#888888;" target="vmbase">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_vmbase_recur" edge="1" parent="1" source="recurvm" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;endFill=0;strokeColor=#888888;" target="vmbase">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_vmbase_fx" edge="1" parent="1" source="fxvm" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;endFill=0;strokeColor=#888888;" target="vmbase">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_vmbase_alert" edge="1" parent="1" source="alertvm" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;endFill=0;strokeColor=#888888;" target="vmbase">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_transferpage_vm" edge="1" parent="1" source="transferpage" style="edgeStyle=orthogonalEdgeStyle;endArrow=open;endFill=0;strokeColor=#AAAAAA;dashed=1;" target="transfervm">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_benpage_vm" edge="1" parent="1" source="benpage" style="edgeStyle=orthogonalEdgeStyle;endArrow=open;endFill=0;strokeColor=#AAAAAA;dashed=1;" target="benvm">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_billpage_vm" edge="1" parent="1" source="billpage" style="edgeStyle=orthogonalEdgeStyle;endArrow=open;endFill=0;strokeColor=#AAAAAA;dashed=1;" target="billvm">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_recurpage_vm" edge="1" parent="1" source="recurpage" style="edgeStyle=orthogonalEdgeStyle;endArrow=open;endFill=0;strokeColor=#AAAAAA;dashed=1;" target="recurvm">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_fxpage_vm" edge="1" parent="1" source="fxpage" style="edgeStyle=orthogonalEdgeStyle;endArrow=open;endFill=0;strokeColor=#AAAAAA;dashed=1;" target="fxvm">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_alertpage_vm" edge="1" parent="1" source="alertpage" style="edgeStyle=orthogonalEdgeStyle;endArrow=open;endFill=0;strokeColor=#AAAAAA;dashed=1;" target="alertvm">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
