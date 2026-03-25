@@ -243,7 +243,7 @@ public class TransferViewModel : ViewModelBase
                 ? $"TXN-{result.CreatedAt:yyyyMMdd}-{result.TransactionId:D4}"
                 : result.Id.ToString();
 
-            CurrentStep = 6;
+            CurrentStep = 5;
         }
         catch (Exception ex)
         {
